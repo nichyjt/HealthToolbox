@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="15dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dialog_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options:"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/weightIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Using Weights: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/dialog_text"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_text" />
+
+    <Switch
+        android:id="@+id/weightSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weightIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weightIcon"
+        app:layout_constraintTop_toTopOf="@+id/weightIcon" />
+
+    <TextView
+        android:id="@+id/repsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do to Failure: "
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/weightIcon"
+        app:layout_constraintTop_toBottomOf="@+id/weightIcon" />
+
+    <Switch
+        android:id="@+id/repsSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/repsText"
+        app:layout_constraintEnd_toEndOf="@+id/weightSwitch"
+        app:layout_constraintTop_toTopOf="@+id/repsText" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Create Timer: "
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/repsText"
+        app:layout_constraintTop_toBottomOf="@+id/repsText" />
+
+    <Switch
+        android:id="@+id/timerSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/timerText"
+        app:layout_constraintEnd_toEndOf="@+id/repsSwitch"
+        app:layout_constraintStart_toStartOf="@+id/repsSwitch"
+        app:layout_constraintTop_toTopOf="@+id/timerText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

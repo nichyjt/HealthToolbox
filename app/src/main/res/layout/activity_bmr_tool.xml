@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:id="@+id/bmrToolLayout"
+    tools:context=".BmrToolActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?homeAsUpIndicator"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bmrOutputCard"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:cardBackgroundColor="@color/almostGray"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/almostGray"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:id="@+id/bmrMainAnchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmrOutputCard">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bmrGenderIcon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            app:srcCompat="@drawable/ic_gender" />
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/maleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/maleText"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/femaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:text="@string/femaleText"
+                android:textSize="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/heightInput"
+        app:layout_constraintStart_toStartOf="@+id/bmrMainAnchor"
+        app:layout_constraintTop_toBottomOf="@+id/bmrMainAnchor"
+        app:srcCompat="@drawable/ic_height" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bmrHeightLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:id="@+id/bmrHeightInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bmrHeightInchesLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bmrHeightLayout"
+        app:layout_constraintStart_toEndOf="@+id/bmrHeightLayout"
+        app:layout_constraintTop_toTopOf="@+id/bmrHeightLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:id="@+id/bmrHeightInchesInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+        app:srcCompat="@drawable/ic_weight_scale_icon" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bmrWeightLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+        app:layout_constraintStart_toStartOf="@+id/bmrHeightLayout"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bmrWeightInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"
+            android:maxLength="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bmrAgeIcon"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatImageView2"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
+        app:srcCompat="@drawable/ic_birthday_cake" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bmrAgeLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bmrAgeIcon"
+        app:layout_constraintStart_toStartOf="@+id/bmrWeightLayout"
+        app:layout_constraintTop_toTopOf="@+id/bmrAgeIcon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bmrAgeInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Switch
+        android:id="@+id/bmrImperialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Imperial Units"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/bmrAgeIcon"
+        app:layout_constraintTop_toBottomOf="@+id/bmrAgeLayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bmrFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        app:backgroundTint="@color/lightOrange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_menu_threedot" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BMR_LoadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toTopOf="@+id/bmrFAB"
+        app:layout_constraintEnd_toEndOf="@+id/bmrFAB"
+        app:maxImageSize="30dp"
+        app:srcCompat="@drawable/ic_report" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BMR_SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toBottomOf="@+id/bmrFAB"
+        app:layout_constraintEnd_toStartOf="@+id/bmrFAB"
+        app:srcCompat="@drawable/ic_save_icon" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bmrCalculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingHorizontal="16dp"
+        android:text="CALCULATE"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:icon="@drawable/ic_calculator"
+        app:iconSize="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/bmrFAB"
+        app:layout_constraintEnd_toStartOf="@+id/BMR_SaveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bmrFAB" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

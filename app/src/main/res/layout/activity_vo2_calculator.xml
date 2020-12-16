@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VO2Calculator">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/VO2outputCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/almostGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/VO2output"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="18sp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="40sp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a VO2 Max Calculator"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/VO2outputCard" />
+
+        <RadioGroup
+            android:id="@+id/vo2options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <RadioButton
+                android:id="@+id/vo2burgerbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="2.4km/1.5mi Test (Cooper)"
+                android:textSize="20sp" />
+            <RadioButton
+                android:id="@+id/vo2burgerbtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.4km/1.5mi Test (ACSM)"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:id="@+id/vo2cooperbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Minute Test"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/vo2beepbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beep Test"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/vo2FragmentSpace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vo2options" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

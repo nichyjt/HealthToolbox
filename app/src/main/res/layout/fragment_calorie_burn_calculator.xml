@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CalorieBurnCalculatorActivity"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calorieCalc_LayoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/calorieCalc_WeightIcon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/calorieCalc_WeightInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/calorieCalc_WeightInputLayout"
+            app:srcCompat="@drawable/ic_weight_scale_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/calorieCalc_TimerIcon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:layout_constraintBottom_toBottomOf="@+id/calorieCalc_TimeInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_WeightIcon"
+            app:layout_constraintTop_toTopOf="@+id/calorieCalc_TimeInputLayout"
+            app:srcCompat="@drawable/ic_timer_icon" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/calorieCalc_WeightInputLayout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toEndOf="@+id/calorieCalc_WeightIcon"
+            app:layout_constraintTop_toBottomOf="@+id/calorieCalc_OutputCard">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/calorieCalc_WeightInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLength="4"
+                android:nextFocusDown="@id/calorieCalc_TimeInput"
+                app:layout_constraintBottom_toBottomOf="@+id/calorieCalc_WeightIcon"
+                app:layout_constraintStart_toEndOf="@+id/calorieCalc_WeightIcon" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_TimerIcon"
+            app:layout_constraintTop_toTopOf="@+id/calorieCalc_ExerciseTypeContainer"
+            app:srcCompat="@drawable/ic_exercise_unknown" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calorieCalc_ExerciseTypeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="@dimen/cardview_default_elevation"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_TimeInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/calorieCalc_TimeInputLayout">
+
+            <Spinner
+                android:id="@+id/calorieCalc_ExerciseType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="wrap_content"
+                tools:listitem="@layout/spinner_dropdownitem" />
+        </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/calorieCalc_ExerciseConfirmationText"
+            app:layout_constraintTop_toTopOf="@+id/calorieCalc_customText">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/calorieCalc_ExerciseListCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calorieCalc_ExerciseTypeContainer">
+
+                <ListView
+                    android:id="@+id/calorieCalc_ExerciseListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/almostGray"
+                    android:elevation="@dimen/cardview_default_elevation"
+                    android:orientation="vertical" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/calorieCalc_customText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Custom exercise intensity:"
+            android:textColor="@color/bluePriComplement"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_ExerciseTypeContainer"
+            app:layout_constraintTop_toBottomOf="@+id/calorieCalc_ExerciseTypeContainer" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="METs"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_customText"
+            app:layout_constraintTop_toBottomOf="@+id/calorieCalc_customText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/calorieCalc_customMET"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                app:layout_constraintStart_toStartOf="@+id/calorieCalc_customText"
+                app:layout_constraintTop_toBottomOf="@+id/calorieCalc_customText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/calorieCalc_ExerciseConfirmationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="20sp"
+            android:gravity="center"
+            android:text="Choose an Exercise!"
+            android:textColor="@color/bluePriComplement"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/calorieCalculateButton"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/calorieCalc_TimeInputLayout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/calorieCalc_WeightInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/calorieCalc_WeightInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/calorieCalc_WeightInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/calorieCalc_TimeInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLength="4"
+                app:layout_constraintBottom_toBottomOf="@+id/calorieCalc_TimerIcon"
+                app:layout_constraintStart_toEndOf="@+id/calorieCalc_TimerIcon" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calorieCalc_OutputCard"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardBackgroundColor="@color/almostGray"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/calorieCalc_OutputText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/almostGray"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/calorieCalcFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            app:backgroundTint="@color/lightOrange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_menu_threedot" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/calorieCalc_LoadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/lightGray"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/calorieCalcFAB"
+            app:layout_constraintEnd_toEndOf="@+id/calorieCalcFAB"
+            app:maxImageSize="30dp"
+            app:srcCompat="@drawable/ic_report" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/calorieCalc_SaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/lightGray"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/calorieCalcFAB"
+            app:layout_constraintEnd_toStartOf="@+id/calorieCalcFAB"
+            app:srcCompat="@drawable/ic_save_icon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/calorieCalculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:paddingHorizontal="16dp"
+            android:text="CALCULATE"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:icon="@drawable/ic_calculator"
+            app:iconSize="20dp"
+            app:iconTint="#000000"
+            android:translationZ="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/calorieCalcFAB"
+            app:layout_constraintEnd_toStartOf="@+id/calorieCalc_SaveButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/calorieCalcFAB" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

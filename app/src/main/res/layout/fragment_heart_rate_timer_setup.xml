@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HeartRateTimerSetupFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/HeartRateTimerNeckPulse"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@+id/HeartRateTimerText1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_neck_pulse" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/HeartRateTimerWristPulse"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toEndOf="@+id/HeartRateTimerNeckPulse"
+            app:layout_constraintTop_toTopOf="@+id/HeartRateTimerNeckPulse"
+            app:srcCompat="@drawable/ic_wrist_pulse" />
+
+        <TextView
+            android:id="@+id/HeartRateTimerText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Find your pulse:"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/HeartRateTimerWristPulse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/HeartRateTimerWristPulse" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Timer Length: "
+            android:textColor="#000000"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/heartRateTimerIcon"
+            app:layout_constraintStart_toStartOf="@+id/HeartRateTimerText1"
+            app:layout_constraintTop_toTopOf="@+id/heartRateTimerIcon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/heartRateTimerIcon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toBottomOf="@+id/HeartRateTimerOptionRow"
+            app:layout_constraintEnd_toStartOf="@+id/HeartRateTimerOptionRow"
+            app:layout_constraintStart_toStartOf="@+id/HeartRateTimerNeckPulse"
+            app:layout_constraintTop_toTopOf="@+id/HeartRateTimerOptionRow"
+            app:srcCompat="@drawable/ic_timer_icon" />
+
+        <RadioGroup
+            android:id="@+id/HeartRateTimerOptionRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/HeartRateTimerWristPulse"
+            app:layout_constraintTop_toBottomOf="@+id/HeartRateTimerWristPulse">
+
+            <RadioButton
+                android:id="@+id/HeartRateTimer15s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="15s"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/HeartRateTimer30s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30s"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/HeartRateTimer60s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60s"
+                android:textSize="20dp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/HeartRateTimerText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Start the timer.\n\n4. Tap to your pulse."
+            android:textColor="#000000"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView3"
+            app:layout_constraintEnd_toStartOf="@+id/appCompatImageView3"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/appCompatImageView3" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/HeartRateTimerOptionRow"
+            app:layout_constraintStart_toStartOf="@+id/heartRateTimerIcon"
+            app:layout_constraintTop_toBottomOf="@+id/HeartRateTimerOptionRow"
+            app:srcCompat="@drawable/ic_tap" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/HeartRateTimerStartTimerButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3"
+            app:srcCompat="@drawable/ic_play_button_arrowhead" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    tools:context=".vo2beepFragment">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <NumberPicker
+                android:id="@+id/beepLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/dash"
+                app:layout_constraintEnd_toStartOf="@+id/dash"
+                app:layout_constraintTop_toTopOf="@+id/dash"
+                android:scaleX="2"
+                android:scaleY="2"/>
+
+            <TextView
+                android:id="@+id/dash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="-"
+                android:textSize="24dp"
+                android:layout_marginTop="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView10"
+                />
+            <NumberPicker
+                android:id="@+id/beepShuttles"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/dash"
+                app:layout_constraintStart_toEndOf="@+id/dash"
+                app:layout_constraintTop_toTopOf="@+id/dash"
+                android:scaleX="2"
+                android:scaleY="2"/>
+
+            <TextView
+                android:id="@+id/beepLevelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:text="Level"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/beepLevel"
+                app:layout_constraintEnd_toStartOf="@+id/dash"
+                app:layout_constraintStart_toStartOf="@+id/beepLevel" />
+
+            <TextView
+                android:id="@+id/beepShuttleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:text="Shuttles"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/beepShuttles"
+                app:layout_constraintEnd_toEndOf="@+id/beepShuttles"
+                app:layout_constraintStart_toEndOf="@+id/dash" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vo2CalculateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:paddingHorizontal="16dp"
+                android:text="CALCULATE"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:icon="@drawable/ic_calculator"
+                app:iconSize="20dp"
+                app:iconTint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dash" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="What level did you reach in the beep test?"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sourceDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Based on: Leger &amp; Lambert (1982)"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vo2CalculateButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

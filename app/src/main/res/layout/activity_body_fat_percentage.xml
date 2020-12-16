@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".BodyFatPercentage">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?homeAsUpIndicator"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bfpOutputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:cardBackgroundColor="@color/almostGray"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:id="@+id/bfpGenderRow"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bfpOutputContainer">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bfpGenderIcon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_gender" />
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imperialText">
+
+            <RadioButton
+                android:id="@+id/maleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:text="@string/maleText"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/femaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:text="@string/femaleText"
+                android:textSize="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bfpHeightIcon"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/bfpGenderRow"
+        app:layout_constraintTop_toBottomOf="@+id/bfpGenderRow"
+        app:srcCompat="@drawable/ic_height" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bfpHeightLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bfpHeightIcon"
+        app:layout_constraintStart_toEndOf="@+id/bfpHeightIcon"
+        app:layout_constraintTop_toTopOf="@+id/bfpHeightIcon">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bfpHeightInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/bfpHeightIcon" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bfpHeightInchesLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bfpHeightLayout"
+        app:layout_constraintStart_toEndOf="@+id/bfpHeightLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bfpHeightInchesInput"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bfpCircumferenceIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bfpWaistLayout"
+        app:layout_constraintEnd_toEndOf="@+id/bfpHeightIcon"
+        app:layout_constraintStart_toStartOf="@+id/bfpHeightIcon"
+        app:layout_constraintTop_toTopOf="@+id/bfpNeckLayout"
+        app:srcCompat="@drawable/ic_circumference" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Circumference"
+        android:textColor="#000000"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="@+id/bfpCircumferenceIcon"
+        app:layout_constraintStart_toStartOf="@+id/bfpCircumferenceIcon"
+        app:layout_constraintTop_toBottomOf="@+id/bfpCircumferenceIcon" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bfpNeckLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/bfpHeightLayout"
+        app:layout_constraintTop_toBottomOf="@+id/bfpHeightLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bfpNeckInput"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bfpWaistLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/bfpNeckLayout"
+        app:layout_constraintTop_toBottomOf="@+id/bfpNeckLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bfpWaistInput"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bfpHipLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/bfpWaistLayout"
+        app:layout_constraintTop_toTopOf="@+id/bfpWaistLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bfpHipInput"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Switch
+        android:id="@+id/bfpImperialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Imperial Units"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/bfpCircumferenceIcon"
+        app:layout_constraintTop_toBottomOf="@+id/bfpWaistLayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bfpFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/lightOrange"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_menu_threedot" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bfp_LoadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toTopOf="@+id/bfpFAB"
+        app:layout_constraintEnd_toEndOf="@+id/bfpFAB"
+        app:maxImageSize="30dp"
+        app:srcCompat="@drawable/ic_report" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bfp_SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toBottomOf="@+id/bfpFAB"
+        app:layout_constraintEnd_toStartOf="@+id/bfpFAB"
+        app:srcCompat="@drawable/ic_save_icon" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bfpCalculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingHorizontal="16dp"
+        android:text="CALCULATE"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:icon="@drawable/ic_calculator"
+        app:iconSize="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/bfpFAB"
+        app:layout_constraintEnd_toStartOf="@+id/bfp_SaveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bfpFAB" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

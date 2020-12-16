@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/lightGray"
+    android:animateLayoutChanges="true"
+    android:id="@+id/bmiToolActivity"
+    tools:context=".BmiToolActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?homeAsUpIndicator"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outputCardView">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintTop_toBottomOf="@+id/outputCardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/heightRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/heightIcon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        app:srcCompat="@drawable/ic_height" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/heightInputLayout"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/heightInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5"
+                            android:textSize="20dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/heightInputLayoutInches"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@color/almostGray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/heightInputInches"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textSize="20dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/weightRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/heightRow"
+                    app:layout_constraintTop_toBottomOf="@+id/heightRow">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/weightIcon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        app:srcCompat="@drawable/ic_weight_scale_icon" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bmiWeightInputLayout"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        app:boxBackgroundColor="@color/almostGray">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/weightInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5"
+                            android:textSize="20dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/bmiImperialSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Imperial Units"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/weightRow"
+                    app:layout_constraintTop_toBottomOf="@+id/weightRow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bmiCalculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingHorizontal="16dp"
+        android:text="CALCULATE"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:icon="@drawable/ic_calculator"
+        app:iconSize="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/bmiFAB"
+        app:layout_constraintEnd_toStartOf="@+id/BMI_SaveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bmiFAB" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/outputCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/almostGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextSwitcher
+                android:id="@+id/bmiOutputTextSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:foregroundGravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </TextSwitcher>
+
+            <TextSwitcher
+                android:id="@+id/bmiDescriptionTextSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bmiOutputTextSwitcher">
+
+            </TextSwitcher>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BMI_LoadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toTopOf="@+id/bmiFAB"
+        app:layout_constraintEnd_toEndOf="@+id/bmiFAB"
+        app:maxImageSize="30dp"
+        app:srcCompat="@drawable/ic_report" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BMI_SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        app:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toBottomOf="@+id/bmiFAB"
+        app:layout_constraintEnd_toStartOf="@+id/bmiFAB"
+        app:srcCompat="@drawable/ic_save_icon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bmiFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/lightOrange"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_menu_threedot" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

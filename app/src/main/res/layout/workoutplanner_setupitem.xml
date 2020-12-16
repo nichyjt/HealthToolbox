@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:focusableInTouchMode="true"
+    android:layout_centerHorizontal="true"
+
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/WorkoutPlanner_Setup_Item_nameContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/frame"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/WorkoutPlanner_Setup_Item_NameLayout"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Exercise Name"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/WorkoutPlanner_Setup_ExerciseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:textSize="20dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/workoutPlanner_Setup_Item_weightIc"
+                app:layout_constraintStart_toEndOf="@+id/workoutPlanner_Setup_Item_weightIc"
+                app:layout_constraintTop_toTopOf="@+id/workoutPlanner_Setup_Item_weightIc">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/workoutPlanner_Setup_Item_WeightInputCon"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Weight"
+                    app:layout_constraintStart_toEndOf="@+id/workoutPlanner_Setup_Item_weightIc"
+                    app:layout_constraintTop_toBottomOf="@+id/WorkoutPlanner_Setup_Item_nameContainer">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/WorkoutPlanner_Setup_Item_WeightInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:textSize="18dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/frame2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/WorkoutPlanner_Setup_Item_NumRepIc"
+                app:layout_constraintStart_toEndOf="@+id/WorkoutPlanner_Setup_Item_NumRepIc"
+                app:layout_constraintTop_toTopOf="@+id/WorkoutPlanner_Setup_Item_NumRepIc">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/WorkoutPlanner_Setup_Item_NumRepInputCon"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Reps"
+
+                    app:layout_constraintStart_toStartOf="@+id/frame"
+                    app:layout_constraintTop_toBottomOf="@+id/frame">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/WorkoutPlanner_Setup_Item_NumRepInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </FrameLayout>
+
+
+            <ImageView
+                android:id="@+id/WorkoutPlanner_Setup_Item_OptionBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_dual_settings"
+                app:layout_constraintBottom_toBottomOf="@+id/WorkoutPlanner_Setup_Item_nameContainer"
+                app:layout_constraintEnd_toStartOf="@+id/WorkoutPlanner_Setup_Item_DeleteButton"
+                app:layout_constraintTop_toTopOf="@+id/WorkoutPlanner_Setup_Item_nameContainer" />
+
+            <ImageView
+                android:id="@+id/WorkoutPlanner_Setup_Item_DeleteButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_trash"
+                app:layout_constraintBottom_toBottomOf="@id/WorkoutPlanner_Setup_Item_OptionBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/WorkoutPlanner_Setup_Item_OptionBtn" />
+
+            <TextView
+                android:id="@+id/WorkoutPlanner_Setup_Item_ExerciseNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="404"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/workoutPlanner_Setup_Item_weightIc"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="@+id/WorkoutPlanner_Setup_Item_ExerciseNumber"
+                app:layout_constraintStart_toStartOf="@+id/WorkoutPlanner_Setup_Item_ExerciseNumber"
+                app:layout_constraintTop_toBottomOf="@+id/WorkoutPlanner_Setup_Item_ExerciseNumber"
+                app:srcCompat="@drawable/ic_weight" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/WorkoutPlanner_Setup_Item_NumRepIc"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/workoutPlanner_Setup_Item_weightIc"
+                app:layout_constraintStart_toEndOf="@+id/frame"
+                app:layout_constraintTop_toTopOf="@+id/workoutPlanner_Setup_Item_weightIc"
+                app:srcCompat="@drawable/ic_bar_chart" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/WorkoutPlanner_Setup_Item_TimerCon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/WorkoutPlanner_Setup_Item_NumRepIc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/frame2"
+                app:layout_constraintTop_toTopOf="@+id/workoutPlanner_Setup_Item_weightIc">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/WorkoutPlanner_Setup_Item_timerIc"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_timer_icon" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/WorkoutPlanner_Setup_Item_TimerInputCon"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Sec"
+                    app:layout_constraintStart_toEndOf="@+id/WorkoutPlanner_Setup_Item_timerIc"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/WorkoutPlanner_Setup_Item_TimerInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignEnd="@id/WorkoutPlanner_Setup_Item_timerIc"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18dp"
+                        app:layout_constraintStart_toEndOf="@+id/WorkoutPlanner_Setup_Item_timerIc" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

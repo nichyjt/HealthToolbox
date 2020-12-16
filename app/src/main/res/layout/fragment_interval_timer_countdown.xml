@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntervalTimerCountdown"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <ImageSwitcher
+            android:id="@+id/pauseButtonSwitcher"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/newInterval"></ImageSwitcher>
+
+        <TextView
+            android:id="@+id/roundNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/IntervalExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roundNumber" />
+
+        <TextView
+            android:id="@+id/countdownTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/pauseButtonSwitcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roundNumber" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/previousRound"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="60dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/pauseButtonSwitcher"
+            app:layout_constraintEnd_toStartOf="@+id/pauseButtonSwitcher"
+            app:layout_constraintTop_toTopOf="@+id/pauseButtonSwitcher"
+            app:srcCompat="@drawable/ic_previous" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/skipButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/pauseButtonSwitcher"
+            app:layout_constraintStart_toEndOf="@+id/pauseButtonSwitcher"
+            app:layout_constraintTop_toTopOf="@+id/pauseButtonSwitcher"
+            app:srcCompat="@drawable/ic_next" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/restartSet"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/newInterval"
+            app:srcCompat="@drawable/ic_refresh" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/newInterval"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/restartSet"
+            app:layout_constraintEnd_toStartOf="@+id/restartSet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_log_out" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

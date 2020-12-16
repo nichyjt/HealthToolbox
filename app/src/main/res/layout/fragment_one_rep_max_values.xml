@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OneRepMaxValues"
+    android:animateLayoutChanges="true"
+    android:id="@+id/oneRM_Values_FrameLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/oneRM_Values_outputValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="404444"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="60sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/oneRM_Values_outputValue"
+                android:layout_toEndOf="@+id/oneRM_Values_outputValue"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="kg/lbs"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/oneRM_Values_nscaHelperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Get Training Helper?"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/oneRM_Values_nscaHelperOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_nscaHelperText"
+            app:layout_constraintStart_toEndOf="@+id/oneRM_Values_nscaHelperText"
+            app:layout_constraintTop_toTopOf="@+id/oneRM_Values_nscaHelperText" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/oneRM_values_ContainerCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="@dimen/cardview_default_elevation"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_nscaHelperOption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/oneRM_Values_Container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp">
+
+                <EditText
+                    android:id="@+id/oneRM_Values_customPercent"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toStartOf="@+id/oneRM_Values_customPercText"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_70percent" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Your Rep Max Percentages"
+                    android:textColor="@color/bluePriComplement"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_customPercText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_customPercent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_70percent"
+                    app:layout_constraintTop_toTopOf="@+id/oneRM_Values_customPercent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_95percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center_horizontal"
+                    android:text="95%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/oneRM_Values_95pVal" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_90percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_95percent"
+                    app:layout_constraintStart_toStartOf="@+id/oneRM_Values_95percent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_95percent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_80percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="80%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_90percent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_90percent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_75percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="75%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_80percent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_80percent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_70percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="70%:"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_75percent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_75percent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_95pVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="99"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toStartOf="@+id/oneRM_Values_95copy"
+                    app:layout_constraintStart_toEndOf="@+id/oneRM_Values_95percent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_90pVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_90percent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_95pVal"
+                    app:layout_constraintStart_toStartOf="@+id/oneRM_Values_95pVal"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_95pVal" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_80pVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_75percent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_90pVal"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_90pVal" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_75pVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_75percent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_80pVal"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_80pVal" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_70pVal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_customPercent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_75pVal"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_75pVal" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_customVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="35sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_customPercent"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_70pVal"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_70pVal" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_95copy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_95pVal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/oneRM_Values_95pVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_90copy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_90pVal"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_95copy"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_95pVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_80copy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_80pVal"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_90copy"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_90pVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_75copy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_75pVal"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_80copy"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_80pVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_70copy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_70pVal"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_75copy"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_75pVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/oneRM_Values_customCopy"
+                    android:backgroundTint="@color/lightGray"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_customVal"
+                    app:layout_constraintEnd_toEndOf="@+id/oneRM_Values_70copy"
+                    app:layout_constraintTop_toTopOf="@+id/oneRM_Values_customVal"
+                    app:srcCompat="@drawable/ic_copy_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/oneRM_Values_nscaContainerCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_nscaHelperOption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/oneRM_Values_nscaContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_nscaHelperOption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_outputValue">
+
+                <NumberPicker
+                    android:id="@+id/oneRM_Values_nscaValuePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="45dp"
+                    android:scaleX="2.5"
+                    android:scaleY="2.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_nscaOptions" />
+
+                <RadioGroup
+                    android:id="@+id/oneRM_Values_nscaOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                    <RadioButton
+                        android:id="@+id/oneRM_Values_nscaRepOption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Adjust Reps"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/oneRM_Values_nscaWeightOption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adjust Load Intensity"
+                        android:textSize="16sp" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/oneRM_Values_nsca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adapted from NSCA Training Load Chart (2012)."
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_nscaCardTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Load-Intensity Helper"
+                    android:textColor="@color/bluePriComplement"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Select your preferred\ntraining volume or intensity:"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/oneRM_Values_nscaOptions"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_nscaCardTitle" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_nscaPickerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oneRM_Values_nscaValuePicker"
+                    app:layout_constraintStart_toEndOf="@+id/oneRM_Values_nscaValuePicker"
+                    app:layout_constraintTop_toTopOf="@+id/oneRM_Values_nscaValuePicker" />
+
+                <TextView
+                    android:id="@+id/trainingLoadText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="45dp"
+                    android:text="Suggested Training Load:"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oneRM_Values_nscaValuePicker" />
+
+                <TextView
+                    android:id="@+id/oneRM_Values_nscaLoadOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/bluePriComplement"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/oneRM_Values_nsca"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/trainingLoadText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

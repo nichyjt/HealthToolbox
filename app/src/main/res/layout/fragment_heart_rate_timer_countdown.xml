@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HeartRateTimerCountdownFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/HeartRateTimerCountdownContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/HeartRateTimerCountdownDescriptionCont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/HeartRateTimerCountdownText">
+
+            <TextView
+                android:id="@+id/HeartRateTimerDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/HeartRateTimerCountdownIcon"
+                app:layout_constraintStart_toEndOf="@+id/HeartRateTimerCountdownIcon"
+                app:layout_constraintTop_toTopOf="@+id/HeartRateTimerCountdownIcon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/HeartRateTimerCountdownIcon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/ic_tap" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/HeartRateTimerCountdownText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="60dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/HeartRateTimerCountdownRestartIcon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/HeartRateTimerCountdownText"
+            app:srcCompat="@drawable/ic_refresh" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

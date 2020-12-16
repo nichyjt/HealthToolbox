@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".vo2burgerFragment"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <NumberPicker
+                android:id="@+id/burgerSec"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+                app:layout_constraintStart_toEndOf="@+id/semicolon"
+                app:layout_constraintTop_toTopOf="@+id/semicolon"
+                android:clickable="false" />
+
+            <NumberPicker
+                android:id="@+id/burgerMin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+                app:layout_constraintEnd_toStartOf="@+id/semicolon"
+                app:layout_constraintTop_toTopOf="@+id/semicolon"
+                android:clickable="false" />
+
+            <TextView
+                android:id="@+id/vSecTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:text="Sec"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/burgerSec"
+                app:layout_constraintEnd_toEndOf="@+id/burgerSec"
+                app:layout_constraintStart_toStartOf="@+id/burgerSec" />
+
+            <TextView
+                android:id="@+id/semicolon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="10dp"
+                android:text=":"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/burgerDescription" />
+
+            <TextView
+                android:id="@+id/burgerDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:text="How fast can you finish a 2.4km / 1.5mi run?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/vMinTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:text="Min"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/burgerMin"
+                app:layout_constraintEnd_toEndOf="@+id/burgerMin"
+                app:layout_constraintStart_toStartOf="@+id/burgerMin" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vo2CalculateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="30dp"
+                android:text="CALCULATE"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:icon="@drawable/ic_calculator"
+                app:iconSize="20dp"
+                app:iconTint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/semicolon" />
+
+            <TextView
+                android:id="@+id/sourceDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Based on: BURGER, S.C. et al. (1990)"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vo2CalculateButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

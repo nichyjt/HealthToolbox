@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/calorieCalc_Option_ExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:textSize="18dp"
+        android:text="Run at 404 min/mi; asjdajsdladlnasd"
+        android:textColor="@color/design_default_color_on_secondary"/>
+
+    <TextView
+        android:id="@+id/calorieCalc_metCodeForNerds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:text="MET CODE: 404"
+        android:textSize="10dp" />
+
+</RelativeLayout>
