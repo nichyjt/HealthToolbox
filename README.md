@@ -12,7 +12,6 @@ This project is meant as a personal learning exercise to:
 ### Calculators
 1. Body Mass Index
 2. Body Fat Percentage
-    - Based on 
 3. Basal Metabolic Rate
     - Based on the more recent Mifflin St-Jeor Formula.
 4. Calorie Burn
