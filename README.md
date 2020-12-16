@@ -22,12 +22,12 @@ This project is meant as a personal learning exercise for the Android framework 
 
 ### Data Persistence
 Information from the app user can be saved in the app via JSON files.
-The JSON files are primarily accessed via 
+The JSON files are primarily accessed and modified with help from GSON.
 1. 'Snapshot'
     - A simple compilation of various data saved.
-    - Highlights the latest information or key information (e.g. Monthly average BMI, latest Blood Pressure reading, etc.)
+    - Highlights the latest information or key information. (e.g. Monthly average BMI, latest Blood Pressure reading, etc.)
 2. 'Report Card'
     - Full display of the health data being saved.
-    - Organised by month
+    - Organised by month.
 
 CAA: 161220
