@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This personal project is a simple health & fitness application built with the Android framework.
+A minimalistic, lightweight and function-oriented health & fitness application built with Android.
 This project is meant as a personal learning exercise for the Android framework and various APIs, including GSON.
 
 ## Main Features
