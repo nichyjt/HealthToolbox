@@ -39,12 +39,10 @@ public class WorkoutToolsFragment extends Fragment {
         ArrayAdapter<WorkoutTool> myWorkoutToolArrayAdapter = new WorkoutToolAdapter(getActivity(), myWorkoutToolList);
         AdapterView myWorkoutListView = inflatedView.findViewById(R.id.workoutToolsList);
         myWorkoutListView.setAdapter(myWorkoutToolArrayAdapter);
-
         //Attach click listeners
         myWorkoutListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             Class WorkoutToolClass;
-
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -72,21 +70,10 @@ public class WorkoutToolsFragment extends Fragment {
                 //creates an intent to start an activity/fragment as specified in the array.
                 Intent intent = new Intent(WorkoutToolsFragment.this.getContext(), WorkoutToolClass);
                 startActivity(intent);
-
-
             }
         });
-
-
-
         return inflatedView;
     }
-
-
-
-
-
-
 }
 
 

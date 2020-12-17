@@ -116,14 +116,10 @@ public class WorkoutPlanner_Setup extends Fragment {
             }
         });
 
-
-
         //RecyclerView and FAB scroll logic
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                //super.onScrollStateChanged(recyclerView, newState);
                 if(!recyclerView.canScrollVertically(1) && !recyclerView.canScrollVertically(-1)){
                     menu.show();
                     if(menuActive){
@@ -133,7 +129,6 @@ public class WorkoutPlanner_Setup extends Fragment {
 
                 }
             }
-
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -151,7 +146,6 @@ public class WorkoutPlanner_Setup extends Fragment {
                         save.show();
                     }
                 }
-
             }
         });
         return view;
@@ -173,13 +167,9 @@ public class WorkoutPlanner_Setup extends Fragment {
         }
     }
 
-
     public void saveRoutine(String newName){
         Fragment mainMenu = getActivity().getSupportFragmentManager().findFragmentByTag("FRAGMENT_WORKOUT_PLANNER_MENU");
         ((WorkoutPlanner_MainMenu)mainMenu).saveNewWorkoutPlannerData(workoutDataPosition, newName, workoutPlanner_items);
     }
-
-
-
 
 }

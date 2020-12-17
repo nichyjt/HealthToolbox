@@ -41,7 +41,6 @@ public class OneRepMaxSetup extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View mLayout = inflater.inflate(R.layout.fragment_one_rep_max_setup, container, false);
         mLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +136,6 @@ public class OneRepMaxSetup extends Fragment {
 
         });
 
-
         //Compile, calculate and bundle up for the new fragment to use
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +196,6 @@ public class OneRepMaxSetup extends Fragment {
                 break;
         }
 
-        //define rounding logic here
         DecimalFormat oneDP = new DecimalFormat("#.#");
         oneRM = Double.parseDouble(oneDP.format(oneRM));
         return oneRM;

@@ -9,14 +9,14 @@ public class Interval_Item {
 
     boolean isWork;
     int intervalItemLength;
-    String intervalExerciseName = "";
+    String intervalExerciseName;
 
     //Interval_Item constructor
     public Interval_Item(boolean isWorkNotRest, String exerciseName){
         //This indexes all of the items
 
         //This indexes the work/rest items,
-        //and sets the Interval's time to 20s if it is work, or 10s if it is a rest
+        //and pre-sets the Interval's time to 20s if it is work, or 10s if it is a rest
         if(isWorkNotRest){
             intervalItemLength = 20;
         } else {
@@ -29,16 +29,6 @@ public class Interval_Item {
         this.intervalExerciseName = exerciseName;
     }
 
-    //Index manipulation functions
-    public boolean getIsWorkNotRest(){
-        return isWork;
-    }
-
-    public int getWorkOrRestIconResourceId(){
-        if(isWork){
-            return R.drawable.ic_running_man;
-        }else return R.drawable.ic_whistle_icon;
-    }
 
     //Code to get and set the interval round data
     public String getIntervalItemName(){return intervalExerciseName;}

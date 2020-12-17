@@ -15,10 +15,8 @@ public class WorkoutPlanner_Item {
         numReps = reps;
         time = timeNeeded;
     }
-
     public boolean checkValidity(){
         return (name.trim().length()>0);
     }
-
 
 }

@@ -29,7 +29,6 @@ public class Dialog_BloodPressureInfo extends DialogFragment {
             }
         });
 
-
         return builder.create();
     }
 }

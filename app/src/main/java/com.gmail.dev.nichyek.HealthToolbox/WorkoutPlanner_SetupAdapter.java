@@ -27,7 +27,7 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
         setup = setupContext;
     }
 
-    //ViewHolders are persistent.
+    //ViewHolders are persistent
     public class WP_SetupViewHolder extends RecyclerView.ViewHolder{
         EditText nameInput;
         TextInputLayout nameInputLayout;
@@ -123,8 +123,6 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
         });
     }
 
-
-
     @Override
     public long getItemId(int position) {
         return position;
@@ -160,7 +158,7 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
                 layout.setError("You need to enter a name.");
                 workoutPlannerItems.get(position).name = "";
             }else{
-                //Off Warning + update item param
+                //Disable Warning + update item param
                 layout.setErrorEnabled(false);
                 workoutPlannerItems.get(position).name = editable.toString();
             }
@@ -268,7 +266,6 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
                 workoutPlannerItems.get(position).time = val;
             }
         }
-
     }
 
     private class OptionClickListener implements View.OnClickListener {
@@ -285,6 +282,4 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
             dialogOptions.show(setup.getFragmentManager(), "dialogOption");
         }
     }
-
-
 }

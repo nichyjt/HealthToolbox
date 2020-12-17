@@ -16,7 +16,6 @@ public class WorkoutToolAdapter extends ArrayAdapter<WorkoutTool> {
         super(context, 0, workoutToolArrayList);
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //the view that this adapter takes comes from Workout_Tool_List_Item

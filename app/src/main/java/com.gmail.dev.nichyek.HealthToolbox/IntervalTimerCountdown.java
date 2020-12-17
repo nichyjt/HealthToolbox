@@ -21,9 +21,7 @@ import java.util.ArrayList;
 
 public class IntervalTimerCountdown extends Fragment{
 
-
-    //Fields to assist with activity
-    int currentIndex = 0; //This param will assist in pause/resume/skip/back logic
+    int currentIndex = 0;
     int activeTime = 0;
     boolean isPaused = false;
     boolean pausedTimerActive = false;
@@ -33,7 +31,6 @@ public class IntervalTimerCountdown extends Fragment{
 
 
     public IntervalTimerCountdown(ArrayList<Interval_Item> intervalRoutine) {
-        // Required empty public constructor
         this.intervalRoutine = intervalRoutine;
     }
 
@@ -41,10 +38,7 @@ public class IntervalTimerCountdown extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         View intervalTimerCountdownView = inflater.inflate(R.layout.fragment_interval_timer_countdown, container, false);
-
         //Media Setup
         final MediaPlayer singleBellPlayer = MediaPlayer.create(getContext(), R.raw.boxingbellsingle);
         final MediaPlayer tripleBellPlayer = MediaPlayer.create(getContext(), R.raw.boxingbelltriple);
@@ -56,7 +50,6 @@ public class IntervalTimerCountdown extends Fragment{
         final TextView countdownTime = intervalTimerCountdownView.findViewById(R.id.countdownTime);
         final TextView activeExerciseName = intervalTimerCountdownView.findViewById(R.id.IntervalExerciseName);
 
-        //final Button pause = intervalTimerCountdownView.findViewById(R.id.pauseButton);
         final ImageSwitcher pause = intervalTimerCountdownView.findViewById(R.id.pauseButtonSwitcher);
         Animation in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in_fast);
         Animation out = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out_fast);
@@ -69,9 +62,6 @@ public class IntervalTimerCountdown extends Fragment{
         });
         pause.setInAnimation(in);
         pause.setOutAnimation(out);
-
-
-
         pause.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_pause_button));
 
         final ImageView skip = intervalTimerCountdownView.findViewById(R.id.skipButton);
@@ -356,8 +346,6 @@ public class IntervalTimerCountdown extends Fragment{
     public void onDestroy() {
         super.onDestroy();
     }
-
-
 
     public void disableIntervalCountdown(){
         userExitFrag = true;

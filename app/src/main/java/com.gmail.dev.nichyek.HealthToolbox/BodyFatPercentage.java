@@ -41,6 +41,11 @@ public class BodyFatPercentage extends AppCompatActivity {
     EditText hipInput;
     EditText neckInput;
     TextView outputText;
+    TextInputLayout heightLayout;
+    TextInputLayout inchesLayout;
+    TextInputLayout waistLayout;
+    TextInputLayout hipLayout;
+    TextInputLayout necklayout;
 
 
     @Override
@@ -64,11 +69,11 @@ public class BodyFatPercentage extends AppCompatActivity {
         hipInput.addTextChangedListener(new bfpTextWatcher(hipInput));
         neckInput.addTextChangedListener(new bfpTextWatcher(neckInput));
 
-        final TextInputLayout heightLayout = findViewById(R.id.bfpHeightLayout);
-        final TextInputLayout inchesLayout = findViewById(R.id.bfpHeightInchesLayout);
-        final TextInputLayout waistLayout = findViewById(R.id.bfpWaistLayout);
-        final TextInputLayout hipLayout = findViewById(R.id.bfpHipLayout);
-        final TextInputLayout necklayout = findViewById(R.id.bfpNeckLayout);
+        heightLayout = findViewById(R.id.bfpHeightLayout);
+        inchesLayout = findViewById(R.id.bfpHeightInchesLayout);
+        waistLayout = findViewById(R.id.bfpWaistLayout);
+        hipLayout = findViewById(R.id.bfpHipLayout);
+        necklayout = findViewById(R.id.bfpNeckLayout);
         heightLayout.setHint("Height (cm)");
         inchesLayout.setHint("Inches (in)");
         inchesLayout.setVisibility(View.INVISIBLE);
@@ -130,7 +135,7 @@ public class BodyFatPercentage extends AppCompatActivity {
             }
         });
 
-        //Imperial option should make stuff visible and change some hints
+        //Imperial option makes imperial inputs visible and change some hints
         final Switch imperialOption = findViewById(R.id.bfpImperialSwitch);
 
         //Gender option should make stuff visible
@@ -169,7 +174,6 @@ public class BodyFatPercentage extends AppCompatActivity {
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Code is as such for clarity.
                 if(heightInput.getText().toString().length()==0||neckInput.getText().toString().length()==0||waistInput.getText().toString().length()==0){
                     createAlertToast();
                     return;
@@ -230,10 +234,8 @@ public class BodyFatPercentage extends AppCompatActivity {
 
     //This method returns male BFP
     private double findMaleBFP(double height, double neck, double waist, double inches) {
-        //double ftHt = height;
         double nk = neck;
         double wst = waist;
-        //double inHt = inches;
         double totalHt = 12*height + inches;
 
         if (!isImperial) {
@@ -279,7 +281,6 @@ public class BodyFatPercentage extends AppCompatActivity {
         return oneDecimalPlace(x);
     }
 
-    //Converts double into one decimal place
     private double oneDecimalPlace(Double i){
         double value = 0.0;
         DecimalFormat oneDp = new DecimalFormat("##.#");

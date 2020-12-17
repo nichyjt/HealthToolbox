@@ -38,14 +38,13 @@ public class IntervalTimerMenuAdapter extends ArrayAdapter<String> {
     public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
         ViewHolder holder;
         if(convertView==null){
-            //inflate view
             convertView = inflater.inflate(R.layout.interval_timer_menu_item, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        //UI Code
+        //UI
         holder.intervalName.setText(workoutNames.get(position));
         if(position>=workoutNames.size()-2){
             if(position==workoutNames.size()-1){

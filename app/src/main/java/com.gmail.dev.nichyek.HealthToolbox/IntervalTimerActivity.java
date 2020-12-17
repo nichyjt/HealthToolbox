@@ -14,9 +14,6 @@ import java.util.ArrayList;
 //Main Coordinator for fragment transactions
 public class IntervalTimerActivity extends FragmentActivity {
 
-
-    //WorkoutToolId = 1
-
     //Setup fragments for fm to manipulate
     Fragment IntervalTimerMenu = new IntervalTimerMenu();
     Fragment IntervalTimerSetup = new IntervalTimerSetup(null, null);
@@ -91,15 +88,12 @@ public class IntervalTimerActivity extends FragmentActivity {
     }
 
     public void restartIntervalSetupFragment(){
-        //No need to add to backstack. Or else the user will go back to the expired timer
         fm.popBackStack();
-        //fm.beginTransaction().replace(IntervalTimerCountdown.getId(), IntervalTimerSetup).commit();
     }
 
     public void returnToIntervalMenu(){
         tabata = false;
         fm.popBackStack();
-        //fm.beginTransaction().replace(IntervalTimerCountdown.getId(), IntervalTimerMenu).commit();
     }
 
     public ArrayList<Interval_Item> getTabataRoutine(){

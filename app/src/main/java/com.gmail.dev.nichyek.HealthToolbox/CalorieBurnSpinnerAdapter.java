@@ -28,7 +28,7 @@ public class CalorieBurnSpinnerAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        //No viewholder as list is very small.
+        //No need for viewholder as list is very small.
         convertView = inflater.inflate(R.layout.spinner_dropdownitem, parent, false);
         ImageView imageView = convertView.findViewById(R.id.spinner_icon);
         TextView textView = convertView.findViewById(R.id.spinner_text);

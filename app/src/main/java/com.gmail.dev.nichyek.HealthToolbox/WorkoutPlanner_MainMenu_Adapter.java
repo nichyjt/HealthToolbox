@@ -89,9 +89,7 @@ public class WorkoutPlanner_MainMenu_Adapter extends ArrayAdapter<String> {
                 }
             });
         }
-
         return convertView;
     }
-
 
 }

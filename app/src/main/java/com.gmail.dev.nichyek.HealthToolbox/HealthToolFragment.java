@@ -28,21 +28,17 @@ public class HealthToolFragment extends Fragment {
         myHealthToolsList.add(new HealthTool(4, "Body Fat Percentage", "Calculate an estimate of your body fat percentage.", R.drawable.ic_bfp_color));
         myHealthToolsList.add(new HealthTool(5, "Blood Pressure Tracker", "Keep logs for your blood pressure.", R.drawable.ic_blood_pressure));
 
-        //create an adapter for listView to use; a listView object uses adapter
-        // An adapter takes the array and converts it to a UI component (listView)
         HealthToolAdapter healthAdapter = new HealthToolAdapter(getActivity(), myHealthToolsList);
         AdapterView listView = inflatedView.findViewById(R.id.healthToolsList);
         listView.setAdapter(healthAdapter);
 
 
-        //sets listeners for each item in the listView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Class toolClass;
                 int myToolId = myHealthToolsList.get(i).getHealthToolId();
-                //This is where your toolId in the comments gets related to the activity to launch.
                 switch(myToolId){
                     case 1:
                         toolClass = BmiToolActivity.class;
@@ -63,7 +59,6 @@ public class HealthToolFragment extends Fragment {
                         toolClass = MainActivity.class;
                 }
 
-                //creates an intent to start an activity/fragment as specified in the array.
                 Intent intent = new Intent(HealthToolFragment.this.getContext(), toolClass);
                 startActivity(intent);
 

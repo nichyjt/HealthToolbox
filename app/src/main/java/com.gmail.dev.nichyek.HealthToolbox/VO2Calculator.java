@@ -16,15 +16,12 @@ public class VO2Calculator extends FragmentActivity {
     Fragment fAcsm = new vo2ACSMFragment();
     Fragment fCooper = new vo2cooperFragment();
     Fragment fBeep = new vo2beepFragment();
-    //Fragment fLandingPage = new vo2LandingPage();
-    //Fragment currentFragment = fLandingPage;
     RadioGroup vo2Options;
     RadioButton cooperBtn;
     RadioButton burgerBtn;
     RadioButton acsmBtn;
     RadioButton beepBtn;
     TextView output;
-    //Fragment manager params and set transactions
     FragmentManager fm = getSupportFragmentManager();
 
     @Override
@@ -54,8 +51,6 @@ public class VO2Calculator extends FragmentActivity {
                 }
             }
         });
-
-
     }
 
     private void switchToCooper(){
@@ -70,7 +65,5 @@ public class VO2Calculator extends FragmentActivity {
     private void switchToBeep(){
         fm.beginTransaction().setCustomAnimations(R.anim.slide_in, R.anim.slide_out).replace(R.id.vo2FragmentSpace, fBeep).commit();
     }
-
-
 
 }

@@ -16,7 +16,6 @@ public class WorkoutPlannerActivity extends FragmentActivity {
     FragmentManager fm = getSupportFragmentManager();
     Fragment setup;
     Fragment menu = new WorkoutPlanner_MainMenu();
-    Fragment debug = new DebugFragment();
     Fragment activeWorkout;
     Toolbar toolbar;
 

@@ -30,7 +30,6 @@ import java.util.Date;
 
 public class BloodPressureTracker extends AppCompatActivity {
 
-    //Health Tool
     //This activity aims to assist in logging down of blood pressure (BP)
     //as well as give indication on healthy-unhealthy levels of BP
 
@@ -38,7 +37,6 @@ public class BloodPressureTracker extends AppCompatActivity {
     int currentCat = 0;
     boolean fabActive = false;
     FullReportCardFileManager dataMgr;
-    ActionBar actionBar;
 
     EditText upperInput;
     EditText lowerInput;
@@ -57,7 +55,6 @@ public class BloodPressureTracker extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-
         //UI
         upperInput = findViewById(R.id.bloodPressure_UpperInput);
         upperInput.setText("120");
@@ -71,8 +68,6 @@ public class BloodPressureTracker extends AppCompatActivity {
         View view = findViewById(R.id.bloodPressure_layout);
 
         showChartBtn = findViewById(R.id.bloodPressure_helperBtn);
-        //final CardView chartCard = findViewById(R.id.bloodPressureChartCard);
-        //chartCard.setVisibility(View.INVISIBLE);
         showChartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,7 +202,6 @@ public class BloodPressureTracker extends AppCompatActivity {
         return Math.max(cat1, cat2);
     }
 
-
     private void setBPValue() {
         if (upperInput.getText().toString().length() == 0 || lowerInput.getText().toString().length() == 0) {
             BP_Value = "";
@@ -220,36 +214,28 @@ public class BloodPressureTracker extends AppCompatActivity {
             case 0:
                 output.setText("Low Blood Pressure");
                 ((TextView)output.getCurrentView()).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.skyBlue));
-                //output.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.skyBlue));
                 break;
             case 1:
                 output.setText("Healthy Range");
                 ((TextView)output.getCurrentView()).setTextColor(Color.parseColor("#2ECC71"));
-                //output.setTextColor(Color.parseColor("#2ECC71"));
                 break;
             case 2:
                 output.setText("Elevated Range");
                 ((TextView)output.getCurrentView()).setTextColor(Color.parseColor("#F1C40F"));
-                //output.setTextColor(Color.parseColor("#F1C40F"));
                 break;
             case 3:
                 output.setText("Hypertension Stage 1");
                 ((TextView)output.getCurrentView()).setTextColor(Color.parseColor("#E59866"));
-                //output.setTextColor(Color.parseColor("#E59866"));
                 break;
             case 4:
                 output.setText("Hypertension Stage 2");
                 ((TextView)output.getCurrentView()).setTextColor(Color.parseColor("#EF5350"));
-                //output.setTextColor(Color.parseColor("#EF5350"));
                 break;
             case 5:
                 output.setText("Hypertentive Crisis");
                 ((TextView)output.getCurrentView()).setTextColor(Color.parseColor("#D32F2F"));
-                //output.setTextColor(Color.parseColor("#D32F2F"));
                 break;
         }
         BP_Value = upperVal + "/" + lowerVal;
     }
-
-
 }

@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(bottomNavBarListener);
         switchToMyStats();
 
-        //actionBar = getSupportActionBar();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -69,16 +68,13 @@ public class MainActivity extends AppCompatActivity {
             switch(item.getItemId()){
                 //The following cases dictate what happens when each menu item is clicked
                 case R.id.myStats:
-                    //Run some code that relates to myStats fragments
                     switchToMyStats();
                     break;
                 case R.id.healthTools:
-                    //Run some code that relates to healthTools fragments
                     switchToHealthToolsFragment();
                     break;
 
                 case R.id.workoutTools:
-                    //Run some code that relates to workoutTools fragments
                     switchToWorkoutToolsFragment();
                     break;
             }
@@ -87,16 +83,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-        Fragment fakeFragment = new DebugFragment();
         Fragment healthToolsFragment = new HealthToolFragment();
         Fragment workoutToolsFragment = new WorkoutToolsFragment();
         Fragment myStatsFragment = new MyStatisticsFragment();
 
-
-    //switch fragments when its respective menu item is clicked
-    private void switchToFakeFragment(){
-        fm.beginTransaction().replace(R.id.mainActivityFrame, fakeFragment).commit();
-    }
     private void switchToHealthToolsFragment(){
         fm.beginTransaction().replace(R.id.mainActivityFrame, healthToolsFragment).commit();
     }
@@ -106,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     private void switchToMyStats(){
         fm.beginTransaction().replace(R.id.mainActivityFrame, myStatsFragment, "MY_STATS_FRAGMENT").commit();
     }
-
 
 }
 

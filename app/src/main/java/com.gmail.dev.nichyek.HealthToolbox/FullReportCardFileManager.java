@@ -22,7 +22,7 @@ public class FullReportCardFileManager {
     Context context;
     ArrayList<String> monthStrings = new ArrayList<>();
     ArrayList<Integer> newMonthIndexes = new ArrayList<>();
-    //Filenames:
+    //For reference
     //"BMI_Data" type 0
     //"BMR_Data" type 1
     //"BFP_Data" type 2
@@ -39,12 +39,11 @@ public class FullReportCardFileManager {
             dataList =  new ArrayList<>();
             dataList.add(item);
         }else if(removeAtIndex!=null){ //delete logic
-            //IMPT, invert index as removeAtIndex = 0 refers to the last elem in dataList!
-            //dlIndex = size-1-indexReferred
+            //Invert index as removeAtIndex = 0 refers to the last elem in dataList
             int index = dataList.size()-1-removeAtIndex;
             dataList.remove(index);
         }else{
-            //NOTE: Newest readings are parked in last index
+            //Newest readings are parked in last index
             FullReportCardItem lastItem = dataList.get(dataList.size()-1);
             //Overwrite logic
             if(lastItem.date.equals(item.date) && type!=4){
@@ -108,22 +107,25 @@ public class FullReportCardFileManager {
         ArrayList<FullReportCardItem> arrList = loadReportCardItemData(type);
         if(arrList == null) return null;
         FullReportCardItem[] arr = new FullReportCardItem[arrList.size()];
-        for(int i=arrList.size()-1, j=0; i>=0; --i, ++j){ //iterate backwards so tt newest data are first
+        for(int i=arrList.size()-1, j=0; i>=0; --i, ++j){
+            //iterate backwards so tt newest data are logged first
             arr[j] = arrList.get(i);
         }
         compileMonthlyStringAndIndex(arr);
         return arr;
     }
-    //String == Month-Year (e.g. December 2020), ArrayList holds records of the month's recordings.
+    //String contains Month-Year (e.g. December 2020), ArrayList holds records of the month's recordings.
     private void compileMonthlyStringAndIndex(FullReportCardItem[] array){
         if(monthStrings.size()!=0||newMonthIndexes.size()!=0){
             monthStrings.clear();
             newMonthIndexes.clear();
         }
         String currentMonthYear = "";
-        for(int i=0; i<array.length; ++i){ //iterated normally as new data is already at the front
+        for(int i=0; i<array.length; ++i){
+            //iterated forwards as new data is already at the front
             FullReportCardItem item = array[i];
-            String monthYear = findMonthYearString(item.date); // item.date = "DD/MM/YYYY"
+            String monthYear = findMonthYearString(item.date);
+            // item.date = "DD/MM/YYYY"
             if(!(currentMonthYear.equals(monthYear))){
                 currentMonthYear = monthYear;
                 monthStrings.add(monthYear);
@@ -164,7 +166,7 @@ public class FullReportCardFileManager {
         return newMonthIndexes;
     }
 
-    //Takes MM/YYYY and converts it to a UI-friendly String. (June 2020)
+    //Takes MM/YYYY and converts it to a UI-friendly String (eg. June 2020)
     private String findMonthYearString(String rawString){
         String string = "";
         int month = Integer.parseInt(rawString.substring(3,5));
@@ -207,6 +209,6 @@ public class FullReportCardFileManager {
                 break;
         }
         String year = rawString.substring(6);
-        return string + " "+ year; //e.g. June 2020
+        return string + " "+ year;
     }
 }

@@ -51,11 +51,8 @@ public class BmiToolActivity extends AppCompatActivity {
         dataMgr = new FullReportCardFileManager(getApplicationContext());
         setContentView(R.layout.activity_bmi_tool);
         setTitle("BMI Tool");
-
-        //Create top toolbar
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-
 
         final EditText heightInput = findViewById(R.id.heightInput);
         final TextInputLayout heightLayout = findViewById(R.id.heightInputLayout);
@@ -126,7 +123,6 @@ public class BmiToolActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //Code to hide keyboard
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if(getCurrentFocus()!=null){
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
@@ -144,7 +140,6 @@ public class BmiToolActivity extends AppCompatActivity {
             }
         });
 
-        //Save-Load functions
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,7 +165,7 @@ public class BmiToolActivity extends AppCompatActivity {
             }
         });
 
-        //Calculate btn
+        //Calculation
         findViewById(R.id.bmiCalculateButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -199,13 +194,9 @@ public class BmiToolActivity extends AppCompatActivity {
                         Snackbar.make(view, "Is everything filled up yet?", Snackbar.LENGTH_SHORT).show();
                     }
                 }
-
                 if(outputCardView.getVisibility()==View.INVISIBLE){
                     outputCardView.setVisibility(View.VISIBLE);
                 }
-
-
-
             }
         });
 
@@ -222,8 +213,6 @@ public class BmiToolActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     @Override
@@ -295,28 +284,21 @@ public class BmiToolActivity extends AppCompatActivity {
         bmiValue = Double.parseDouble(twoDecimalPlaces.format(unroundedBmiValue));
     }
 
-
     private double convertWeightToMetric(double pounds) {
         return pounds*0.453592;
     }
 
-    //in cm
     private double convertHeightToMetric(double feet, double inches){
+        //Metric in this case is cm
         return (feet*30.48)+(inches*2.54);
     }
 
     private void setBMIOutputUI(){
         String[] bmiParams = getBmiParams(bmiValue);
-        //TextView bmiDescription = findViewById(R.id.bmiDescription);
-        //TextView bmiValOutput = findViewById(R.id.bmiOutput);
-        //bmiDescription.setText(bmiParams[0]);
         outputSwitcher.setText(String.valueOf(bmiValue));
         ((TextView)outputSwitcher.getCurrentView()).setTextColor(Color.parseColor(bmiParams[1]));
-        //bmiDescription.setTextColor(Color.parseColor(bmiParams[1]));
         descriptionSwitcher.setText(String.valueOf(bmiParams[0]));
         ((TextView)descriptionSwitcher.getCurrentView()).setTextColor(Color.parseColor(bmiParams[1]));
-        //bmiValOutput.setText(String.valueOf(bmiValue));
-        //bmiValOutput.setTextColor(Color.parseColor(bmiParams[1]));
     }
 
 

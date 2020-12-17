@@ -7,8 +7,10 @@ public class FullReportCardItem {
     String date;
     String value;
     int type;
-    Integer extraCategory; //Applicable for BMI and BP only
-    String exerciseName; //Applicable for Calorie Item only
+    //Applicable for BMI and BP only
+    String exerciseName;
+    //Applicable for Calorie Item only
+    Integer extraCategory;
 
     public static int BMI_RECORD = 0;
     public static int BMR_RECORD = 1;

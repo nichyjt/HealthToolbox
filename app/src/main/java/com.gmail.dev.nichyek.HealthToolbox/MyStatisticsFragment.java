@@ -34,7 +34,6 @@ public class MyStatisticsFragment extends Fragment {
     LayoutInflater statsInflater;
 
     public MyStatisticsFragment() {
-        // Required empty public constructor
     }
 
 
@@ -47,7 +46,6 @@ public class MyStatisticsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_my_statistics, container, false);
         statsInflater = LayoutInflater.from(getContext());
         fileManager = new FullReportCardFileManager(getContext());
@@ -59,7 +57,6 @@ public class MyStatisticsFragment extends Fragment {
 
 
         //Inflate BMI, BMR, BFP, BP, Calburn
-
         linearLayout = mView.findViewById(R.id.linearLayout);
         View welcomeView = getWelcomeView();
         Button openSnapshot = welcomeView.findViewById(R.id.openSnapshot);

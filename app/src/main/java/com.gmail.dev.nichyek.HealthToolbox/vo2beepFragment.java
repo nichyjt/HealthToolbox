@@ -112,7 +112,7 @@ public class vo2beepFragment extends Fragment {
                         int dataArrayPosition = i - 4;
                         Double[] workingArray = dataStorage[dataArrayPosition];
 
-                        //There are **8** possible ways to extract VO2 data based on bShuttle,
+                        //There are 8 possible cases to extract VO2 data based on bShuttle,
                         //Because every 2-3 stages has a different number of max shuttles.
                         int vo2DataPosition = 0;
                         //Code to determine specific data location.
@@ -272,12 +272,11 @@ public class vo2beepFragment extends Fragment {
                     }
                 } //End of the loop
 
-//                outputText.setText("VO2MAx is : " + VO2Max);
                 String val = "VO2 Max: " + VO2Max;
                 ((VO2Calculator)getActivity()).output.setText(val);
 
             }
-        }); //End of calculation and output of Vo2.
+        });
 
         return beepView;
     }

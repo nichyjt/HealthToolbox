@@ -20,7 +20,6 @@ public class WorkoutPlanner_SetupTouchHelper extends ItemTouchHelper.SimpleCallb
 
     RecyclerView.Adapter mAdapter;
     ArrayList<WorkoutPlanner_Item> itemArrayList;
-
     Drawable trashIcon;
     ColorDrawable background = new ColorDrawable(Color.parseColor("#F44336"));
 

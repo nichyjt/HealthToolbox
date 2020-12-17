@@ -15,16 +15,19 @@ import java.util.ArrayList;
 
 public class FullReportCardActivity extends AppCompatActivity {
 
-    //This class does the following.
+    //This class does the following,
     //1. Load JSON data as required
     //2. Generate a listview representation of the data
     //3. Each cardview contains the month's recordings, and the details inside
+
     /*
+    For reference
     public static int BMI_RECORD = 0;
     public static int BMR_RECORD = 1;
     public static int BFP_RECORD = 2;
     public static int BP_RECORD = 3;
      */
+
     int type;
     FullReportCardFileManager dataMgr;
     ArrayList<String> monthString;

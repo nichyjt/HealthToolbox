@@ -3,7 +3,7 @@ package com.gmail.dev.nichyek.HealthToolbox;
 
 //This class defines the parameters of a WorkoutTool object
 public class WorkoutTool {
-    //WorkoutTool fields
+
     int myWorkoutToolId;
     String myWorkoutToolName;
     String myWorkoutToolDescription;
@@ -16,9 +16,6 @@ public class WorkoutTool {
         myWorkoutToolDescription = workoutToolDescription;
         myWorkoutToolImageId = workoutToolImageId;
     }
-
-    //Methods to assist in getting WorkoutTool object params
-
 
     public int getMyWorkoutToolId() {
         return myWorkoutToolId;

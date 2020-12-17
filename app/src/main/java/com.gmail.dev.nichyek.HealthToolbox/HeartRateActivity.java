@@ -21,7 +21,6 @@ public class HeartRateActivity extends FragmentActivity {
     Fragment HeartRateTimerSetup;
     FragmentManager fm = getSupportFragmentManager();
     Toolbar toolbar;
-    ActionBar actionBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

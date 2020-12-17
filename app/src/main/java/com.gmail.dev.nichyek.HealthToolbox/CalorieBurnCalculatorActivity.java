@@ -42,7 +42,6 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
     HashMap<Integer, String> waterNameMap = new HashMap<>();
     HashMap<Integer, String> specialNameMap = new HashMap<>();
 
-    //Unfortunately, all the METCODEs and METVALs are hardcoded.
     //Although vMETCODE[i] == vMETVAL[i], the following pairs are related by hashmap.
     //Lookup w HashMap for METVAL will be O(1). Using for(..) to find METCODE & METVAL will give O(n).
     int[] runMETCODE =  new int[]{12020,12040,12050,12060,12070,12080};
@@ -305,12 +304,9 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
                 mView.performClick();
             }
         });
-
-
     }
 
-
-    //This fn only builds parts of the hmap when called.
+    // This fn only builds parts of the hmap when called.
     // Hopefully this reduces memory load, compared to building everything from the start
     private void setMapData(int exerciseType, int myArrID){
         HashMap<Integer, String> chosenMap;
@@ -348,7 +344,7 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
                 metValues = specialMETVAL;
                 break;
             default:
-                //Machine generated; If exerciseType !{0..4}, error is thrown
+                //If exerciseType !{0..4}, error is thrown
                 throw new IllegalStateException("Unexpected value: " + exerciseType);
         }
         String[] arr = getResources().getStringArray(myArrID);

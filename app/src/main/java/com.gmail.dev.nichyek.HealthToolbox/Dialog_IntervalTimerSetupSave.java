@@ -43,7 +43,7 @@ public class Dialog_IntervalTimerSetupSave extends DialogFragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 AlertDialog dialog = (AlertDialog) getDialog();
-                if(editable.length()==0){ //disable the save button
+                if(editable.length()==0){
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
                 }else{
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
@@ -52,19 +52,17 @@ public class Dialog_IntervalTimerSetupSave extends DialogFragment {
             }
         }; nameInput.addTextChangedListener(tw);
 
-        //build the dialog
+        //Build the dialog
         builder.setView(view);
         builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //txfr workoutname data over
                 ((IntervalTimerSetup)getParentFragment()).saveIntervalWorkout(existingName);
             }
         });
         builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //cancel
                 Dialog_IntervalTimerSetupSave.this.getDialog().cancel();
             }
         });

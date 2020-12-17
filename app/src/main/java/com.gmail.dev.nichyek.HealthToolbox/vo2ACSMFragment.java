@@ -35,8 +35,6 @@ public class vo2ACSMFragment extends Fragment {
         burgerMin.setMinValue(6);
         burgerSec.setMaxValue(59);
 
-        //final TextView outputText = vo2BurgerInflated.findViewById(R.id.outputText);
-
         Button calculateButton = vo2BurgerInflated.findViewById(R.id.vo2CalculateButton);
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +48,6 @@ public class vo2ACSMFragment extends Fragment {
                 DecimalFormat twoDecimalPlaces = new DecimalFormat("##.##");
                 double VO2max = Double.parseDouble(twoDecimalPlaces.format(rawVO2));
 
-                //outputText.setText("Your VO2 max is:\n"+ VO2max);
                 String val = "VO2 Max: " + VO2max;
                 ((VO2Calculator)getContext()).output.setText(val);
                 Snackbar.make(view, "VO2 Calculated!", Snackbar.LENGTH_SHORT).show();
@@ -58,15 +55,7 @@ public class vo2ACSMFragment extends Fragment {
             }
         });
 
-
-
-
-
-
         return vo2BurgerInflated;
     }
-
-
-
 
 }

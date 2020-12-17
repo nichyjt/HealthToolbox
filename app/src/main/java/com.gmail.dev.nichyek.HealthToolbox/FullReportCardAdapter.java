@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class FullReportCardAdapter extends ArrayAdapter<String> {
 
     ClipboardManager clipboardManager;
-
     LayoutInflater inflater;
     ArrayList<String> months;
     ArrayList<Integer> indexes;
@@ -33,6 +32,7 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
     Context context;
     Activity parentActivity;
     int type;
+
     public FullReportCardAdapter(@NonNull Context context, int resource, ArrayList<String> objects, ArrayList<Integer> indexes, FullReportCardItem[] arr) {
         super(context, resource, objects);
         this.months = objects;
@@ -44,7 +44,6 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
         layoutHolder = new LinearLayout[months.size()];
         clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
     }
-
 
     private static class ViewHolder{
         TextView monthText;
@@ -103,7 +102,7 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
                         Snackbar.make(view, item.value + " Copied to clipboard", Snackbar.LENGTH_SHORT).show();
                     }
                 });
-                //Delete
+                //Deletion logic
                 view.findViewById(R.id.reportCardMonthItem_DeleteButton).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

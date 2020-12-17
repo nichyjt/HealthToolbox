@@ -1,7 +1,6 @@
 package com.gmail.dev.nichyek.HealthToolbox;
 
 
-//This class includes the details of a healthTool
 public class HealthTool {
 
     private int healthToolImageId;
@@ -9,8 +8,6 @@ public class HealthTool {
     private String healthToolDescription;
     public int healthToolId;
 
-
-    //healthTool object constructor
     public HealthTool(int ToolId , String myHealthToolName , String myHealthToolDescription , int myHealthToolImageId){
 
         healthToolId = ToolId;
@@ -20,7 +17,6 @@ public class HealthTool {
 
     }
 
-    //methods to get the parameters for a healthTool
     public int getHealthToolId(){
         return  healthToolId;
     }

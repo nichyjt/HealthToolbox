@@ -24,7 +24,6 @@ public class HeartRateTimerCountdownFragment extends Fragment {
 
     int time;
     int taps;
-    boolean backPressed = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,20 +65,15 @@ public class HeartRateTimerCountdownFragment extends Fragment {
         return view;
     }
 
-    //Just call this timer.
     private CountDownTimer prepareTimer(final View view){
         return new CountDownTimer(3000, 100) {
             @Override
             public void onTick(long l) {
-                if(backPressed) cancel();
-
                 int currTime = 1+Integer.parseInt(String.valueOf(l))/1000;
                 countdownText.setText(""+currTime);
             }
             @Override
             public void onFinish() {
-                if(backPressed) cancel();
-
                 tapImage.setVisibility(View.VISIBLE);
                 tapImage.setImageResource(R.drawable.ic_tap);
                 descriptionText.setText("Tap to your pulse.");
@@ -94,15 +88,12 @@ public class HeartRateTimerCountdownFragment extends Fragment {
         return new CountDownTimer(time*1000, 100) {
             @Override
             public void onTick(long l) {
-                if(backPressed) cancel();
-
                 int currTime = 1+Integer.parseInt(String.valueOf(l))/1000;
                 countdownText.setText(""+currTime);
             }
 
             @Override
             public void onFinish() {
-                if(backPressed) cancel();
 
                 mView.setClickable(false);
                 int BPM = taps*(60/time);
@@ -116,8 +107,5 @@ public class HeartRateTimerCountdownFragment extends Fragment {
         };
     }
 
-    public void disableTimer(){
-        backPressed = true;
-    }
 
 }

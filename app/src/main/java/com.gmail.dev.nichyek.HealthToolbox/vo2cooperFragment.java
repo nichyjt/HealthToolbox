@@ -63,7 +63,6 @@ public class vo2cooperFragment extends Fragment {
             }
         });
 
-
         cooperInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -73,7 +72,6 @@ public class vo2cooperFragment extends Fragment {
                 return false;
             }
         });
-        
         return  cooperView;
     }
 

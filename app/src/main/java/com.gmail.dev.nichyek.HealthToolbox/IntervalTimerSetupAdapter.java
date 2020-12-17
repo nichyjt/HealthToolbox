@@ -22,6 +22,7 @@ public class IntervalTimerSetupAdapter extends ArrayAdapter<Interval_Item> {
     IntervalTimerSetup setupFragment;
     LayoutInflater inflater;
     ArrayList<Interval_Item> routine;
+
     //Constructor
     public IntervalTimerSetupAdapter(Activity context, ArrayList<Interval_Item> IntervalItemArrayList, IntervalTimerSetup setupFragment) {
         super(context, 0, IntervalItemArrayList);

@@ -26,7 +26,6 @@ public class vo2burgerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View vo2BurgerInflated = inflater.inflate(R.layout.fragment_vo2burger, container, false);
 
         final NumberPicker burgerMin = vo2BurgerInflated.findViewById(R.id.burgerMin);
@@ -34,8 +33,6 @@ public class vo2burgerFragment extends Fragment {
         burgerMin.setMaxValue(30);
         burgerMin.setMinValue(6);
         burgerSec.setMaxValue(59);
-
-        //final TextView outputText = vo2BurgerInflated.findViewById(R.id.outputText);
 
         Button calculateButton = vo2BurgerInflated.findViewById(R.id.vo2CalculateButton);
         calculateButton.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +47,6 @@ public class vo2burgerFragment extends Fragment {
                 DecimalFormat twoDecimalPlaces = new DecimalFormat("##.##");
                 double VO2max = Double.parseDouble(twoDecimalPlaces.format(rawVO2));
 
-                //outputText.setText("Your VO2 max is:\n"+ VO2max);
                 String val = "VO2 Max: " + VO2max;
                 ((VO2Calculator)getContext()).output.setText(val);
                 Snackbar.make(view, "VO2 Calculated!", Snackbar.LENGTH_SHORT).show();
@@ -58,16 +54,7 @@ public class vo2burgerFragment extends Fragment {
             }
         });
 
-
-
-
-
-
         return vo2BurgerInflated;
     }
-
-
-
-
 
 }

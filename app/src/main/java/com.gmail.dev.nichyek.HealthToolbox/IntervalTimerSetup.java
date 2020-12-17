@@ -24,19 +24,17 @@ public class IntervalTimerSetup extends Fragment {
     int numberOfItems = 0;
     boolean readyOn = false;
 
-    //Persistent data params and setup
     @Nullable
     Integer routineIndex;
     String routineName;
     ArrayList<Interval_Item> myIntervalRounds =  new ArrayList<>();
 
-    //Default Constructor
     public IntervalTimerSetup(String routineName, @Nullable Integer routineIndex){
         this.routineName = routineName;
         this.routineIndex = routineIndex;
     }
 
-    //"import" arraylist data over
+    //"Import" arraylist data over
     public void setIntervalRounds(ArrayList<Interval_Item> myIntervalRounds){
         this.myIntervalRounds = myIntervalRounds;
         numberOfItems = myIntervalRounds.size();
@@ -58,7 +56,8 @@ public class IntervalTimerSetup extends Fragment {
         final AdapterView myIntervalItemListView = mView.findViewById(R.id.Interval_ItemHolder);
 
         //Instantiate the first item which is a 'work' IntervalItem
-        if(numberOfItems==0) { //catches exception when set is reset
+        if(numberOfItems==0) {
+            //catches exception when set is reset
             myIntervalRounds.add(new Interval_Item(true, ""));
         }
 
@@ -92,8 +91,7 @@ public class IntervalTimerSetup extends Fragment {
             }
         });
 
-        //START TIMER button logic (compile times & launch new fragment & Pass over array data)
-
+        //Button logic
         readyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,8 +124,6 @@ public class IntervalTimerSetup extends Fragment {
             }
         });
 
-
-        //DELETE LAST ROUND button logic
         deleteLastRound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,9 +155,6 @@ public class IntervalTimerSetup extends Fragment {
         ((IntervalTimerMenu) menu).updateIntervalWorkoutList(true, routineName, myIntervalRounds, routineIndex);
     }
 
-
-
-
-} //end of class
+}
 
 

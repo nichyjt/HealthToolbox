@@ -36,11 +36,9 @@ public class WorkoutPlanner_MainMenu extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -102,7 +100,6 @@ public class WorkoutPlanner_MainMenu extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-
     public void saveNewWorkoutPlannerData(int position, String newName, ArrayList<WorkoutPlanner_Item> updatedRoutine){
         //Prepare data
         if(position==-1){ //add to back of array. Replace "Create New Workout"
@@ -151,7 +148,6 @@ public class WorkoutPlanner_MainMenu extends Fragment {
     //Takes a position value and sends the routine arraylist needed
     //No key-pair value needed as the whole thing is saved as a jsonarray.
     public ArrayList<WorkoutPlanner_Item> getRoutine(int position){
-        //Type type = new TypeToken<ArrayList<WorkoutPlanner_Item>>(){}.getType();
         return (workoutRoutineList.get(position));
     }
 

@@ -163,7 +163,7 @@ public class OneRepMaxValues extends Fragment {
             }
         });
 
-        //Card Visibility logic.
+        //Card Visibility logic
         final Animation slideIn = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in);
         final Animation slideOut = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out);
         nscaHelper.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -194,8 +194,6 @@ public class OneRepMaxValues extends Fragment {
             }
         });
 
-
-
         return mView;
     }
 
@@ -217,7 +215,6 @@ public class OneRepMaxValues extends Fragment {
 
         return String.format(Locale.getDefault(), "%s Reps at %s kg/lbs\n(%s%% 1RM)", reps, load, percent);
     }
-
 
     private View.OnClickListener setCopyClickListener(@Nullable final Double valueToCopy){
         return new View.OnClickListener() {

@@ -32,8 +32,6 @@ public class BmrToolActivity extends AppCompatActivity {
     boolean isImperial = false;
     Double bmrValue = null;
     FullReportCardFileManager dataMgr;
-    Date date = Calendar.getInstance().getTime();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +52,6 @@ public class BmrToolActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
         //Instantiate UI components
         final EditText weightInput = findViewById(R.id.bmrWeightInput);
@@ -102,6 +98,7 @@ public class BmrToolActivity extends AppCompatActivity {
                     Snackbar.make(view, "Have you calculated a value yet?", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
+                Date date = Calendar.getInstance().getTime();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String fDate = sdf.format(date);
                 FullReportCardItem bmrRecord = new FullReportCardItem(fDate, String.valueOf(bmrValue), FullReportCardItem.BMR_RECORD, null);
@@ -186,7 +183,7 @@ public class BmrToolActivity extends AppCompatActivity {
         return true;
     }
 
-    //calculate BMR (Mifflin St Jeor Eqn)
+    //Calculate BMR (Mifflin St Jeor Eqn)
     private void calculateBMR(double weight, double height, int age, boolean male){
         DecimalFormat twodp = new DecimalFormat("#####.##");
         int genderConst = (male)? 5:-161;
@@ -200,7 +197,6 @@ public class BmrToolActivity extends AppCompatActivity {
     private double convertToCm(double feet, double inches){
         return (feet*30.48)+(inches*2.54);
     }
-
     private String getOutputText(){
         return bmrValue + " kcal/day";
     }

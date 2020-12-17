@@ -20,7 +20,6 @@ public class CalorieBurnCalculator_ExerciseListAdapter extends ArrayAdapter<Calo
     Context mainCalcContext;
     int itemMETCODE = 0;
     int chosenMETCODE;
-    int exerciseType;
 
     public CalorieBurnCalculator_ExerciseListAdapter(@NonNull Context context, ArrayList<CalorieBurnCalculator_ExerciseItem> exerciseItemParams) {
         super(context, 0, exerciseItemParams);
