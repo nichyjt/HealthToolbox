@@ -1,4 +1,4 @@
-# HealthToolbox
+# Health Toolbox
 
 ## Project Overview
 
