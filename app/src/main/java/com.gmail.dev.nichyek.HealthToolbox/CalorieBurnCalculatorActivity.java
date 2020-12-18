@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -66,6 +68,7 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
 
     FullReportCardFileManager fileManager;
     Date date = Calendar.getInstance().getTime();
+    Switch imperialSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,12 +88,24 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
         final CardView cardView = findViewById(R.id.calorieCalc_ExerciseListCardView);
         final TextView exerciseConfirmation = findViewById(R.id.calorieCalc_ExerciseConfirmationText);
 
-        TextInputLayout weightLayout = findViewById(R.id.calorieCalc_WeightInputLayout);
+        final TextInputLayout weightLayout = findViewById(R.id.calorieCalc_WeightInputLayout);
         weightLayout.setHint("Weight (kg)");
         TextInputLayout timeLayout = findViewById(R.id.calorieCalc_TimeInputLayout);
         timeLayout.setHint("Duration (mins)");
         final TextInputLayout customLayout = findViewById(R.id.textInputLayout);
         customLayout.setVisibility(View.INVISIBLE);
+
+        imperialSwitch = findViewById(R.id.calBurnImperialSwitch);
+        imperialSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    weightLayout.setHint("Weight (lbs)");
+                }else{
+                    weightLayout.setHint("Weight (kg)");
+                }
+            }
+        });
 
         //OPTIONS UI
         final ListView listView = findViewById(R.id.calorieCalc_ExerciseListContainer);
@@ -133,6 +148,9 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
                     Snackbar.make(view, "Is everything filled in?", Snackbar.LENGTH_SHORT).show();
                 }else{
                     weightInKg = Double.parseDouble(weightInput.getText().toString());
+                    if(imperialSwitch.isChecked()){
+                        weightInKg *= 0.453592;
+                    }
                     timeInMin = Double.parseDouble(timeInput.getText().toString());
                     calBurnt = (int) Math.round(METVAL*weightInKg*timeInMin/60);
                     String output = calBurnt + "kcal burnt.";
@@ -171,7 +189,7 @@ public class CalorieBurnCalculatorActivity extends FragmentActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String fDate = sdf.format(date);
                 FullReportCardItem item = new FullReportCardItem(fDate, String.valueOf(calBurnt), FullReportCardItem.CALORIE_BURN_RECORD, null);
-                String exerciseName = "";
+                String exerciseName;
                 switch(exerciseTypePosition){
                     case 0:
                         exerciseName = runNameMap.get(activeMETCODE);

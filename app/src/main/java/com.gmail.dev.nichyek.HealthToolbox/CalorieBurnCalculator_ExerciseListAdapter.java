@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,7 +19,6 @@ public class CalorieBurnCalculator_ExerciseListAdapter extends ArrayAdapter<Calo
 
     Context mainCalcContext;
     int itemMETCODE = 0;
-    int chosenMETCODE;
 
     public CalorieBurnCalculator_ExerciseListAdapter(@NonNull Context context, ArrayList<CalorieBurnCalculator_ExerciseItem> exerciseItemParams) {
         super(context, 0, exerciseItemParams);
@@ -38,7 +37,6 @@ public class CalorieBurnCalculator_ExerciseListAdapter extends ArrayAdapter<Calo
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chosenMETCODE = constItemMetCode;
                 CalorieBurnCalculatorActivity activeClass = (CalorieBurnCalculatorActivity) mainCalcContext;
                 activeClass.setMETCODE(constItemMetCode);
                 TextView output = activeClass.findViewById(R.id.calorieCalc_ExerciseConfirmationText);

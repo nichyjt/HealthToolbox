@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -6,7 +6,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;

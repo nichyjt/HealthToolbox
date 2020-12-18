@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;

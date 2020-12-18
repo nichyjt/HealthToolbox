@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -23,7 +23,7 @@ public class WorkoutPlanner_SetupTouchHelper extends ItemTouchHelper.SimpleCallb
     Drawable trashIcon;
     ColorDrawable background = new ColorDrawable(Color.parseColor("#F44336"));
 
-    public WorkoutPlanner_SetupTouchHelper(WorkoutPlanner_SetupAdapter adapter, ArrayList<WorkoutPlanner_Item> arrayList, Context context){
+    public WorkoutPlanner_SetupTouchHelper(WorkoutPlanner_SetupAdapter adapter, Context context){
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         mAdapter = adapter;
         itemArrayList = adapter.workoutPlannerItems;

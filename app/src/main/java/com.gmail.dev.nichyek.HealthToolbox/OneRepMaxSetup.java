@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -173,7 +173,7 @@ public class OneRepMaxSetup extends Fragment {
                 oneRM /= (37-reps);
                 break;
             case 2: //Epley Eqn
-                oneRM = (double) weight*reps/30;
+                oneRM = weight *reps/30;
                 oneRM += weight;
                 break;
             case 3: //Mayhew Eqn

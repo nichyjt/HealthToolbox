@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -35,7 +35,6 @@ public class IntervalTimerMenu extends Fragment {
     public IntervalTimerMenu() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,7 +120,6 @@ public class IntervalTimerMenu extends Fragment {
             }
         }
 
-
     }
 
     private void loadIntervalWorkoutList(){
@@ -162,7 +160,7 @@ public class IntervalTimerMenu extends Fragment {
                 nameHolder.clear();
             }
             intervalWorkoutNames.add("TABATA");
-            intervalWorkoutNames.add("Create new workout");
+            intervalWorkoutNames.add("Create New Workout");
             adapter.notifyDataSetChanged();
         }
     }

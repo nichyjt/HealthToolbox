@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +19,6 @@ public class IntervalTimerActivity extends FragmentActivity {
     Fragment IntervalTimerSetup = new IntervalTimerSetup(null, null);
     Fragment IntervalTimerCountdown;
     FragmentManager fm = getSupportFragmentManager();
-    boolean tabata = false;
     Toolbar toolbar;
     ArrayList<Interval_Item> tabataRoutine = getTabataRoutine();
 
@@ -61,7 +60,6 @@ public class IntervalTimerActivity extends FragmentActivity {
     //replace setup fragment with countdown fragment
     public void startCountdownFragment(@Nullable ArrayList<Interval_Item> routine){
         if(routine == null){
-            tabata = true;
             routine = tabataRoutine;
             IntervalTimerCountdown = new IntervalTimerCountdown(routine);
             ((IntervalTimerCountdown)IntervalTimerCountdown).isTabata = true;
@@ -92,7 +90,6 @@ public class IntervalTimerActivity extends FragmentActivity {
     }
 
     public void returnToIntervalMenu(){
-        tabata = false;
         fm.popBackStack();
     }
 

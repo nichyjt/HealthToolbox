@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -51,7 +51,8 @@ public class Menu_CreditsSources extends AppCompatActivity {
                         "2. Boxing Bell 1\n" +
                         "\nhttps://freesound.org/s/66952 " +
                         "\nby Benboncan https://freesound.org/people/Benboncan" +
-                        "\nlicensed under CCBYNC 3.0\n\n"
+                        "\nunder CC-BY 3.0 License\n" +
+                        "\nLicense: http://creativecommons.org/licenses/by/3.0/legalcode\n"
         );
 
         infoText.setText(imgTitle);

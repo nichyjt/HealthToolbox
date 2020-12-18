@@ -1,10 +1,11 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -46,7 +48,7 @@ public class BodyFatPercentage extends AppCompatActivity {
     TextInputLayout waistLayout;
     TextInputLayout hipLayout;
     TextInputLayout necklayout;
-
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class BodyFatPercentage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
+        constraintLayout = findViewById(R.id.bfpMainLayout);
         dataMgr = new FullReportCardFileManager(getApplicationContext());
 
         heightInput = findViewById(R.id.bfpHeightInput);
@@ -82,6 +85,15 @@ public class BodyFatPercentage extends AppCompatActivity {
         hipLayout.setHint("Hip (cm)");
         waistLayout.setHint("Waist (cm)");
 
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            @Override
+            public void onClick(View view) {
+                if(getCurrentFocus()!=null){
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
+            }
+        });
 
         final RadioButton isMale = findViewById(R.id.maleButton);
         isMale.setChecked(true);

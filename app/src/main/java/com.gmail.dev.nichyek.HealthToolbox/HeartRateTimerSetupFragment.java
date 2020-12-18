@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
 
 
 public class HeartRateTimerSetupFragment extends Fragment {
 
-    RadioGroup group;
     RadioButton fifteenSecs;
     RadioButton thirtySecs;
     RadioButton sixtySecs;
@@ -32,7 +30,6 @@ public class HeartRateTimerSetupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_heart_rate_timer_setup, container, false);
-        group = view.findViewById(R.id.HeartRateTimerOptionRow);
         fifteenSecs = view.findViewById(R.id.HeartRateTimer15s);
         thirtySecs = view.findViewById(R.id.HeartRateTimer30s);
         sixtySecs = view.findViewById(R.id.HeartRateTimer60s);

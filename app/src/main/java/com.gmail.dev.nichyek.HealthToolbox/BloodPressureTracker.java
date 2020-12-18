@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,12 +11,12 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -104,7 +104,8 @@ public class BloodPressureTracker extends AppCompatActivity {
             public View makeView() {
                 TextView textView = new TextView(getApplicationContext());
                 textView.setTextSize(34);
-                textView.setGravity(Gravity.TOP|Gravity.CENTER);
+                textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+                textView.setGravity(Gravity.CENTER);
                 return textView;
             }
         });
@@ -177,7 +178,7 @@ public class BloodPressureTracker extends AppCompatActivity {
         int cat2;
         if(upper <=90){
             cat1 = 0;
-        }else if(upper<=120){
+        }else if(upper<120){
             cat1 = 1;
         }else if (upper<130){
             cat1 = 2;
@@ -194,7 +195,7 @@ public class BloodPressureTracker extends AppCompatActivity {
             cat2 = 1;
         }else if (lower<90){
             cat2 = 3;
-        }else if (upper<120){
+        }else if (lower<120){
             cat2 = 4;
         }else{
             cat2 = 5;

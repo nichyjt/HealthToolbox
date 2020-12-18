@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +30,7 @@ public class HealthToolFragment extends Fragment {
         myHealthToolsList.add(new HealthTool(5, "Blood Pressure Tracker", "Keep logs for your blood pressure.", R.drawable.ic_blood_pressure));
 
         HealthToolAdapter healthAdapter = new HealthToolAdapter(getActivity(), myHealthToolsList);
-        AdapterView listView = inflatedView.findViewById(R.id.healthToolsList);
+        ListView listView = inflatedView.findViewById(R.id.healthToolsList);
         listView.setAdapter(healthAdapter);
 
 

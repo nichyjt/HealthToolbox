@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -84,9 +84,8 @@ public class WorkoutPlanner_SetupAdapter extends RecyclerView.Adapter<WorkoutPla
     @Override
     public WP_SetupViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.workoutplanner_setupitem, viewGroup, false);
-        WP_SetupViewHolder viewHolder = new WP_SetupViewHolder(view);
 
-        return viewHolder;
+        return new WP_SetupViewHolder(view);
     }
 
     //Notifydata... calls onBindVH

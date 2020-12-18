@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -267,8 +267,6 @@ public class vo2beepFragment extends Fragment {
                         //Code to return the VO2 data
                         VO2Max = workingArray[vo2DataPosition];
                         Snackbar.make(view, "VO2 Calculated!", Snackbar.LENGTH_SHORT).show();
-                    }else{
-                        //Do nothing for this instance of i
                     }
                 } //End of the loop
 

@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -61,7 +61,7 @@ public class WorkoutPlanner_Setup extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new WorkoutPlanner_SetupTouchHelper(mAdapter, workoutPlanner_items, getContext()));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new WorkoutPlanner_SetupTouchHelper(mAdapter, getContext()));
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
         //Button UI
@@ -105,7 +105,7 @@ public class WorkoutPlanner_Setup extends Fragment {
                 Dialog_WorkoutPlannerSetupSave saveDialog = new Dialog_WorkoutPlannerSetupSave();
                 if(WorkoutName!=null) {
                     saveDialog.setExistingName(WorkoutName);
-                    saveDialog.setDescriptionText("Update your workout name (Optional).\nClick save to confirm all workout edits.");
+                    saveDialog.setDescriptionText("Update name? (Optional)\nClick save to continue.");
                 }else{
                     saveDialog.setDescriptionText("Give your new workout a name!");
                 }

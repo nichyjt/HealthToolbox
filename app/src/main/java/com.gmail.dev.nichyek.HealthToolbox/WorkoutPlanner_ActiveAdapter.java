@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -36,7 +36,7 @@ public class WorkoutPlanner_ActiveAdapter extends ArrayAdapter<WorkoutPlanner_It
     boolean soundPlaying = false;
 
     public WorkoutPlanner_ActiveAdapter(@NonNull Context context, int resource, ArrayList<WorkoutPlanner_Item> objects, TextView invisibleTimerText) {
-        super(context, 0, objects);
+        super(context, resource, objects);
         inflater = LayoutInflater.from(getContext());
         this.invisibleTimerText = invisibleTimerText;
         exerciseDone = new boolean[objects.size()];
@@ -203,6 +203,8 @@ public class WorkoutPlanner_ActiveAdapter extends ArrayAdapter<WorkoutPlanner_It
                 activeTimerTextView.setText("Done!");
                 timerActive = false;
                 soundPlaying = false;
+                beep.pause();
+                beep.seekTo(0);
             }
         };
     }

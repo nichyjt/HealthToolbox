@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -31,7 +31,7 @@ public class OneRepMaxSpinnerAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = inflater.inflate(R.layout.spinner_dropdownitem, parent, false);
-        ((ImageView)convertView.findViewById(R.id.spinner_icon)).setVisibility(View.GONE);
+        convertView.findViewById(R.id.spinner_icon).setVisibility(View.GONE);
         TextView textView = convertView.findViewById(R.id.spinner_text);
         if(position==0){
             textView.setTextColor(Color.parseColor("#808080"));

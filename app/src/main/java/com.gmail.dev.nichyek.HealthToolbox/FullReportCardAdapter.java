@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -28,7 +28,6 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
     ArrayList<String> months;
     ArrayList<Integer> indexes;
     FullReportCardItem[] arr;
-    LinearLayout[] layoutHolder;
     Context context;
     Activity parentActivity;
     int type;
@@ -41,7 +40,6 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
         this.type = arr[0].type;
         this.context = context;
         inflater = LayoutInflater.from(context);
-        layoutHolder = new LinearLayout[months.size()];
         clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
@@ -230,7 +228,7 @@ public class FullReportCardAdapter extends ArrayAdapter<String> {
         String string = "";
         switch(type){
             case 0: //bmi
-                Double avg = 0.0;
+                double avg = 0.0;
                 int n = end-start;
                 for(int i = start; i<end; ++i){
                     avg+=Double.parseDouble(arr[i].value);

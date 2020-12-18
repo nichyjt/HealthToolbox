@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,6 +21,7 @@ public class HeartRateTimerCountdownFragment extends Fragment {
     TextView descriptionText;
     ImageView tapImage;
     ImageView restartButton;
+    boolean clickActive = false;
 
     int time;
     int taps;
@@ -43,29 +44,27 @@ public class HeartRateTimerCountdownFragment extends Fragment {
         tapImage.setVisibility(View.GONE);
         restartButton.setVisibility(View.INVISIBLE);
         descriptionText.setText("Get ready...");
-        view.setClickable(false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ++taps;
+                if(clickActive) ++taps;
             }
         });
-        prepareTimer(view).start();
+        getPrepareTimer().start();
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 taps = 0;
-                prepareTimer(view).start();
+                getPrepareTimer().start();
                 descriptionText.setVisibility(View.VISIBLE);
                 restartButton.setVisibility(View.INVISIBLE);
                 descriptionText.setText("Get Ready...");
-                view.setClickable(false);
             }
         });
         return view;
     }
 
-    private CountDownTimer prepareTimer(final View view){
+    private CountDownTimer getPrepareTimer(){
         return new CountDownTimer(3000, 100) {
             @Override
             public void onTick(long l) {
@@ -74,16 +73,16 @@ public class HeartRateTimerCountdownFragment extends Fragment {
             }
             @Override
             public void onFinish() {
+                clickActive = true;
                 tapImage.setVisibility(View.VISIBLE);
                 tapImage.setImageResource(R.drawable.ic_tap);
                 descriptionText.setText("Tap to your pulse.");
-                mainTimer(view).start();
-                view.setClickable(true);
+                mainTimer().start();
             }
         };
     }
 
-    private CountDownTimer mainTimer(final View mView){
+    private CountDownTimer mainTimer(){
         restartButton.setVisibility(View.INVISIBLE);
         return new CountDownTimer(time*1000, 100) {
             @Override
@@ -94,8 +93,7 @@ public class HeartRateTimerCountdownFragment extends Fragment {
 
             @Override
             public void onFinish() {
-
-                mView.setClickable(false);
+                clickActive = false;
                 int BPM = taps*(60/time);
                 String output = BPM + " BPM";
                 countdownText.setText(output);

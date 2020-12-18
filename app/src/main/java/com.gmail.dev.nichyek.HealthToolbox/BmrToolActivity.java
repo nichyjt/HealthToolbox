@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,7 +69,6 @@ public class BmrToolActivity extends AppCompatActivity {
         TextInputLayout ageLayout = findViewById(R.id.bmrAgeLayout);
         ageLayout.setHint("Age");
         final RadioButton maleRadio = findViewById(R.id.maleButton);
-        final RadioButton femaleRadio = findViewById(R.id.femaleButton);
         final Button calculateButton = findViewById(R.id.bmrCalculateButton);
         final TextView outputText = findViewById(R.id.outputText);
         FloatingActionButton fabMenu = findViewById(R.id.bmrFAB);
@@ -141,16 +140,15 @@ public class BmrToolActivity extends AppCompatActivity {
        calculateButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               boolean genderCheck = false;
-               if(maleRadio.isChecked() || femaleRadio.isChecked()){
-                   genderCheck = true;
-               }
 
                if(isImperial){
-                   if(weightInput.getText().toString().length()!=0&&ageInput.getText().toString().length()!=0
-                   &&genderCheck&&(heightInchesInput.getText().toString().length()!=0||heightInput.getText().toString().length()!=0)){
-                       Double weight = convertToKg(Double.parseDouble(weightInput.getText().toString()));
-                       Double height = convertToCm(Double.parseDouble(heightInput.getText().toString()),Double.parseDouble(heightInchesInput.getText().toString()));
+                   if(weightInput.getText().toString().length()!=0 &&
+                           ageInput.getText().toString().length()!=0 &&
+                           (heightInchesInput.getText().toString().length()!=0||heightInput.getText().toString().length()!=0)){
+                       double weight = convertToKg(Double.parseDouble(weightInput.getText().toString()));
+                       double inches = (heightInchesInput.getText().toString().length()==0)? 0:Double.parseDouble(heightInchesInput.getText().toString());
+                       double feet = (heightInput.getText().toString().length()==0)? 0:Double.parseDouble(heightInput.getText().toString());
+                       double height = convertToCm(feet, inches);
                        calculateBMR(weight, height, Integer.parseInt(ageInput.getText().toString()), maleRadio.isChecked());
                        outputText.setText(getOutputText());
                        Snackbar.make(view, "Calculated!", Snackbar.LENGTH_SHORT).show();
@@ -158,9 +156,9 @@ public class BmrToolActivity extends AppCompatActivity {
                    }
                }else{
                    if(weightInput.getText().toString().length()!=0&&ageInput.getText().toString().length()!=0
-                           &&genderCheck&&heightInput.getText().toString().length()!=0){
-                       Double weight = Double.parseDouble(weightInput.getText().toString());
-                       Double height = Double.parseDouble(heightInput.getText().toString());
+                           &&heightInput.getText().toString().length()!=0){
+                       double weight = Double.parseDouble(weightInput.getText().toString());
+                       double height = Double.parseDouble(heightInput.getText().toString());
                        calculateBMR(weight, height, Integer.parseInt(ageInput.getText().toString()), maleRadio.isChecked());
                        outputText.setText(getOutputText());
                        Snackbar.make(view, "Calculated!", Snackbar.LENGTH_SHORT).show();

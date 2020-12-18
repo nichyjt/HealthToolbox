@@ -1,10 +1,10 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -53,7 +53,7 @@ public class IntervalTimerSetup extends Fragment {
 
         // Inflate the layout for this fragment
         final View mView =  inflater.inflate(R.layout.fragment_interval_timer_setup, container, false);
-        final AdapterView myIntervalItemListView = mView.findViewById(R.id.Interval_ItemHolder);
+        final ListView myIntervalItemListView = mView.findViewById(R.id.Interval_ItemHolder);
 
         //Instantiate the first item which is a 'work' IntervalItem
         if(numberOfItems==0) {

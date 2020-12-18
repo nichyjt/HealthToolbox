@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,23 +10,26 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.DecimalFormat;
 
 public class vo2cooperFragment extends Fragment {
 
-
-
     public vo2cooperFragment() {
         // Required empty public constructor
     }
+
+    Switch imperialSwitch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +37,7 @@ public class vo2cooperFragment extends Fragment {
 
         // Inflate the layout and set up some extra UI for this fragment
         final View cooperView = inflater.inflate(R.layout.fragment_vo2cooper, container, false);
+        final TextInputLayout layout = cooperView.findViewById(R.id.cooperLayout);
         EditText cooperInput = cooperView.findViewById(R.id.cooperInput);
         Button calculateButton = cooperView.findViewById(R.id.vo2CalculateButton);
         //The following code checks if distance input is filled and calculates the VO2Max.
@@ -45,6 +49,18 @@ public class vo2cooperFragment extends Fragment {
             }
         });
 
+
+        imperialSwitch = cooperView.findViewById(R.id.vo2ImperialSwitch);
+        imperialSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    layout.setHint("Distance (mi)");
+                }else{
+                    layout.setHint("Distance (m)");
+                }
+            }
+        });
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +69,10 @@ public class vo2cooperFragment extends Fragment {
                     Snackbar.make(view, "Did you put in a distance yet?", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                int distanceRan = Integer.parseInt(cooperInput.getText().toString());
+                double distanceRan = Double.parseDouble(cooperInput.getText().toString());
+                if(imperialSwitch.isChecked()){
+                    distanceRan *= 1609.34;
+                }
                 double rawVO2 = (distanceRan - 504.9)/44.73;
                 DecimalFormat twoDecimalPlaces = new DecimalFormat("##.##");
                 double VO2Max = Double.parseDouble(twoDecimalPlaces.format(rawVO2));

@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,10 +19,10 @@ public class Menu_DataUsage extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TextView textView = findViewById(R.id.textView);
-        String string = "About your saved data: " +
-                "\n\n1. All saved health data (e.g. BMI, BFP etc) is stored locally on your phone, entirely offline." +
+        String string =
+                "\n1. All saved data is stored offline locally on your phone." +
                 "\n\n2. Your saved data is inaccessible to other applications." +
-                "\n\n3. Your saved data will be deleted when this app is uninstalled.";
+                "\n\n3. All saved data will be deleted when this app is uninstalled.";
 
         textView.setText(string);
     }

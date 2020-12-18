@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
@@ -20,7 +20,6 @@ public class VO2Calculator extends FragmentActivity {
     RadioButton cooperBtn;
     RadioButton burgerBtn;
     RadioButton acsmBtn;
-    RadioButton beepBtn;
     TextView output;
     FragmentManager fm = getSupportFragmentManager();
 
@@ -33,7 +32,6 @@ public class VO2Calculator extends FragmentActivity {
         cooperBtn = findViewById(R.id.vo2cooperbtn);
         burgerBtn = findViewById(R.id.vo2burgerbtn);
         acsmBtn = findViewById(R.id.vo2burgerbtn2);
-        beepBtn = findViewById(R.id.vo2beepbtn);
 
         vo2Options = findViewById(R.id.vo2options);
         switchToBurger();

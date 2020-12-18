@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 public class CalorieBurnCalculator_ExerciseItem {
     int metCode;

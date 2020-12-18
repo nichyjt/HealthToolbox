@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,6 @@ import java.text.DecimalFormat;
 
 public class MyStatisticsFragment extends Fragment {
 
-
     FullReportCardFileManager fileManager;
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
@@ -31,11 +30,11 @@ public class MyStatisticsFragment extends Fragment {
     FullReportCardItem[] bpData;
     FullReportCardItem[] calBurnData;
     boolean needsRefresh = false;
+    boolean snapshotOpen = false;
     LayoutInflater statsInflater;
 
     public MyStatisticsFragment() {
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,18 +54,20 @@ public class MyStatisticsFragment extends Fragment {
         bpData = fileManager.prepareReportDataForAdapter(FullReportCardItem.BP_RECORD);
         calBurnData = fileManager.prepareReportDataForAdapter(FullReportCardItem.CALORIE_BURN_RECORD);
 
-
         //Inflate BMI, BMR, BFP, BP, Calburn
         linearLayout = mView.findViewById(R.id.linearLayout);
         View welcomeView = getWelcomeView();
+        linearLayout.addView(welcomeView);
         Button openSnapshot = welcomeView.findViewById(R.id.openSnapshot);
         openSnapshot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inflateSnapshotViews(linearLayout);
+                if(!snapshotOpen){
+                    snapshotOpen = true;
+                    inflateSnapshotViews(linearLayout);
+                }
             }
         });
-        linearLayout.addView(welcomeView);
         return mView;
     }
 
@@ -93,7 +94,7 @@ public class MyStatisticsFragment extends Fragment {
             ++i;
         }
         if (i == 0) {
-            Snackbar.make(linearLayout, "Hmm, looks like you did not save anything yet!", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(linearLayout, "You did not save anything yet!", Snackbar.LENGTH_SHORT).setAnchorView(R.id.nav_view).show();
         }
     }
 
@@ -312,8 +313,12 @@ public class MyStatisticsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        if(needsRefresh) refreshSnapshot();
-        needsRefresh = false;
+        if(needsRefresh){
+            refreshSnapshot();
+            needsRefresh = false;
+            snapshotOpen = true;
+        }
+        snapshotOpen = false;
         super.onResume();
     }
 

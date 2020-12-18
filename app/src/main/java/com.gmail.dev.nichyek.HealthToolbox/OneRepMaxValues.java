@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -102,9 +102,9 @@ public class OneRepMaxValues extends Fragment {
             public void onClick(View view) {
                 if(vCustomPerc.getText().toString().trim().length()!=0){
                     //Calculate vCustomVal, format the input text
-                    Double interm = Double.parseDouble(vCustomPerc.getText().toString());
+                    double interm = Double.parseDouble(vCustomPerc.getText().toString());
                     interm = findXpercent1RM(interm, vOneRepMax);
-                    vCustomVal.setText(interm.toString());
+                    vCustomVal.setText(Double.toString(interm));
                     customValue = interm;
                     copyCustom.setOnClickListener(setCopyClickListener(customValue));
                 }
@@ -199,7 +199,7 @@ public class OneRepMaxValues extends Fragment {
 
     //Calculate and estimate percentages logic
     private double findXpercent1RM(double percent, double oneRM){
-        double vPercent = (double) percent/100;
+        double vPercent = percent /100;
         double ans = vPercent*oneRM;
         DecimalFormat oneDP = new DecimalFormat("#.#");
         ans = Double.parseDouble(oneDP.format(ans));

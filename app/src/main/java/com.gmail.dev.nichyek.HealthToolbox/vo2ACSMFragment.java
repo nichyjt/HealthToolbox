@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,7 +30,7 @@ public class vo2ACSMFragment extends Fragment {
         final NumberPicker burgerMin = vo2BurgerInflated.findViewById(R.id.burgerMin);
         final NumberPicker burgerSec = vo2BurgerInflated.findViewById(R.id.burgerSec);
         TextView source = vo2BurgerInflated.findViewById(R.id.sourceDescription);
-        source.setText("Based on: ACSM's Complete Guide to Fitness & Health, 2011");
+        source.setText("Adapted from: ACSM's Complete Guide to Fitness & Health, 2011");
         burgerMin.setMaxValue(30);
         burgerMin.setMinValue(6);
         burgerSec.setMaxValue(59);

@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ public class Menu_ResearchSources extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Research Sources");
+        setTitle("Sources");
         setContentView(R.layout.activity_information__sources);
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -75,7 +75,7 @@ public class Menu_ResearchSources extends AppCompatActivity {
         );
 
         Spannable bmrTitle = new SpannableString("Basal Metabolic Rate");
-        bmrTitle.setSpan(new StyleSpan(Typeface.BOLD), 00, bmrTitle.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        bmrTitle.setSpan(new StyleSpan(Typeface.BOLD), 0, bmrTitle.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         Spannable bmrDetails =  new SpannableString(
                 "\n\nBasal Metabolic Rate equation adapted from:\n" +
                         "\nMifflin MD, St Jeor ST, Hill LA, Scott BJ, Daugherty SA, and Koh YO, (1990)." +

@@ -1,4 +1,4 @@
-package com.gmail.dev.nichyek.HealthToolbox;
+package com.gmail.nichyekdev.healthtoolbox;
 
 
 import android.content.Intent;
@@ -44,6 +44,7 @@ public class BmiToolActivity extends AppCompatActivity {
     boolean fabOn = false;
     TextSwitcher outputSwitcher;
     TextSwitcher descriptionSwitcher;
+    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -119,7 +120,7 @@ public class BmiToolActivity extends AppCompatActivity {
             }
         });
 
-        final View view = findViewById(R.id.bmiToolActivity);
+        view = findViewById(R.id.bmiToolActivity);
         view.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -184,8 +185,8 @@ public class BmiToolActivity extends AppCompatActivity {
                     if(weightInput.getText().toString().trim().length() != 0 &&
                             (heightInput.getText().toString().trim().length()!=0 || heightInches.getText().toString().trim().length()!=0)){
                         //calculate bmi
-                        Double feet = (heightInput.getText().toString().length()==0)? 0:Double.parseDouble(heightInput.getText().toString());
-                        Double inches = (heightInches.getText().toString().length()==0)? 0:Double.parseDouble(heightInches.getText().toString());
+                        double feet = (heightInput.getText().toString().length()==0)? 0:Double.parseDouble(heightInput.getText().toString());
+                        double inches = (heightInches.getText().toString().length()==0)? 0:Double.parseDouble(heightInches.getText().toString());
                         double weight = convertWeightToMetric(Double.parseDouble(weightInput.getText().toString()));
                         double height = convertHeightToMetric(feet, inches);
                         calculateBMI(height, weight);
