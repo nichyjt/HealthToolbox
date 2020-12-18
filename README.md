@@ -19,6 +19,7 @@ This project is meant as a personal learning exercise to:
     - Based on 2011 Compendium of Physical Activities.
 5. One Rep Max
     - Various formulae included to provide better 1 Rep Max estimations based on the exercise.
+    - Comes with percentage tools to assist with whatever training requirements one may have.
 
 ### Various Health/Fitness Tools
 1. Blood Pressure Tracker
@@ -48,4 +49,4 @@ The JSON files are primarily parsed and modified with help from GSON.
     - Full display of the health data being saved.
     - Organised by month.
 
-CAA: 161220
+CAA: 181220
