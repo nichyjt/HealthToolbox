@@ -3,6 +3,8 @@
 ## Project Overview
 
 A minimalistic, lightweight and function-oriented health & fitness application built with Android.
+All formulaes and health-indicators are built with proper research (Papers are cited in-app). Please note that this app does NOT serve as medical advice.  
+
 This project is meant as a personal learning exercise to:  
 1. Get familiarised with the Android framework.
 2. Practice OOP.
@@ -48,5 +50,3 @@ The JSON files are primarily parsed and modified with help from GSON.
 2. 'Report Card'
     - Full display of the health data being saved.
     - Organised by month.
-
-CAA: 181220
